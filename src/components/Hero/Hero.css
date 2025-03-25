@@ -1,0 +1,26 @@
+.hero{
+    height: 80vh;
+    /* border: 2px solid red; */
+}
+.her{
+    /* width: 3050px !important; */
+    margin-top:-40px !important;
+}
+.heroText{
+    /* font-size: 100px !important; */
+}
+.textcol {
+    color:#8658cc ;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 60px;
+}
+.bgcol {
+    background-color:#8658cc ;
+    color: white;
+    border: none;
+    padding: 10px !important;
+}
+.bgcol:hover{
+    background-color: aliceblue !important;
+}
