@@ -19,7 +19,7 @@ const Developers = () => {
         {/* Header Section */}
         <div className="mb-12 bg-[#002016] flex items-center border border-gray-500 py-6 h-[30vh] px-6">
           <div className="">
-          <h2 className="text-4xl font-normal text-white mb-3">Allbridge Core</h2>
+          <h2 className="text-4xl font-normal text-white mb-3">StableBridge Core</h2>
           <p className="text-gray-400 text-sm font-semibold max-w-xs">
             Bring cross-chain transfers directly to your protocol
           </p>
@@ -29,7 +29,7 @@ const Developers = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
           >
-            Allbridge Core Docs
+            StableBridge Core Docs
           </motion.a>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Developers = () => {
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Technical Reference</h3>
             <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
-              Explore the basics behind Allbridge Core by visiting our docs
+                Explore the basics behind StableBridge Core by visiting our docs
             </p>
             <motion.a
               href="#"

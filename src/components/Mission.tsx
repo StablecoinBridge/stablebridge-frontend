@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-
+import MissionImage from "@/assets/mission.svg";
 const Mission = () => {
   return (
     <div className="w-full py-20 relative overflow-hidden">
@@ -20,7 +20,7 @@ const Mission = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              Allbridge mission
+              StableBridge mission  
             </motion.h2>
             <motion.p 
               className="text-lg text-gray-text leading-relaxed mb-10 max-w-md"
@@ -54,7 +54,7 @@ const Mission = () => {
           >
             <div className="relative w-full max-w-md">
               <img 
-                src="/lovable-uploads/628d0011-a4a4-4ec4-af51-57e9fe72383c.png" 
+                src={MissionImage} 
                 alt="Allbridge logo" 
                 className="w-full h-auto object-contain"
               />
