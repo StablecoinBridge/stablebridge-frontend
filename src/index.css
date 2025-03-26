@@ -36,6 +36,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+ 
+}
+
+@theme {
   --mint: #3DD598;
   --mint-dark: #2AAB76;
   --mint-light: #61F1BB;
@@ -125,4 +129,44 @@
   body {
     @apply bg-background text-foreground;
   }
+  .star {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 0;
+  }
+  
+  .hero-graphic {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+ 
+  .nav-button {
+    @apply px-6 py-2 rounded-full transition-all duration-300;
+  }
+  
+  .nav-button-outline {
+    @apply border border-gray-700 text-white hover:border-gray-500;
+  }
+  
+  .nav-button-filled {
+    @apply bg-white text-black hover:bg-gray-100;
+  }
+  
+  .heading {
+    @apply text-white font-bold;
+  }
+  
+  .stats-value {
+    @apply text-5xl font-bold md:text-6xl;
+  }
+  
+  
+  .cross-line {
+    @apply bg-gray-700 absolute;
+  }
+  
+  .blockchain-icon {
+    @apply w-6 h-6 opacity-70;
+  }
+  
 }
