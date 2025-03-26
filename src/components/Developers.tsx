@@ -5,6 +5,7 @@ import DocsImage from "@/assets/reference.svg";
 import AboutImage from "@/assets/about.svg";
 import CollabImage from "@/assets/collaboration-l.svg";
 import CollabImage2 from "@/assets/collaboration-r.svg";
+import CoreBg from "@/assets/core-bg.png";
 
 const Developers = () => {
   return (
@@ -23,7 +24,7 @@ const Developers = () => {
       <div className="mx-auto">
         <h3 className="text-white text-4xl font-semibold mb-6">Developers</h3>
         {/* Header Section */}
-        <div className="mb-12 bg-[#002016] flex items-center border border-gray-500 py-6 h-[30vh] px-6">
+        <div className="mb-12 bg-[#002016] flex items-center border border-gray-500 py-6 h-[30vh] px-6" style={{backgroundImage: `url(${CoreBg})`}}>
           <div className="">
           <h2 className="text-4xl font-normal text-white mb-3">StableBridge Core</h2>
           <p className="text-gray-400 text-sm font-semibold max-w-xs">
