@@ -28,7 +28,7 @@ const Developers = () => {
                 <p className="text-gray-text mb-8 max-w-md">
                   Bring cross-chain transfers directly to your protocol
                 </p>
-                <a href="#" className="border border-mint text-mint font-medium px-6 py-3 rounded-full flex items-center justify-center hover:bg-mint/10 transition-all duration-300 inline-flex">
+                <a href="#" className="border border-mint text-mint font-medium px-6 py-3 rounded-full flex items-center justify-center hover:bg-mint/10 transition-all duration-300">
                   Allbridge Core Docs
                 </a>
               </div>

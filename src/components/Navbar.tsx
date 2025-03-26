@@ -1,39 +1,90 @@
+
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   return (
-    <motion.header
+    <motion.nav 
+      className="w-full px-6 md:px-12 py-6 flex justify-between items-center z-10 relative"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full py-5 px-6 md:px-10 flex items-center justify-between relative z-50"
     >
-      <div className="flex items-center space-x-8">
-        <a href="/" className="text-white font-semibold">Company</a>
-        <div className="hidden md:flex space-x-8">
-          <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Allbridge Core</a>
-          <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Allbridge Classic</a>
-        </div>
+      <div className="flex items-center gap-10">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="cursor-pointer"
+        >
+          <span className="font-semibold text-white">Company</span>
+        </motion.div>
+        
+        <nav className="hidden md:flex gap-8">
+          <NavItem label="Allbridge Core" active={false} />
+          <NavItem label="Allbridge Classic" active={false} />
+        </nav>
       </div>
-
-      <div className="hidden md:block">
-        <a href="/" className="flex items-center">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
-            <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="black"/>
-            <path d="M13.5 17C15.9853 17 18 14.9853 18 12.5C18 10.0147 15.9853 8 13.5 8C11.0147 8 9 10.0147 9 12.5C9 14.9853 11.0147 17 13.5 17Z" fill="white"/>
-            <path d="M13.5 32C15.9853 32 18 29.9853 18 27.5C18 25.0147 15.9853 23 13.5 23C11.0147 23 9 25.0147 9 27.5C9 29.9853 11.0147 32 13.5 32Z" fill="white"/>
-            <path d="M26.5 32C28.9853 32 31 29.9853 31 27.5C31 25.0147 28.9853 23 26.5 23C24.0147 23 22 25.0147 22 27.5C22 29.9853 24.0147 32 26.5 32Z" fill="white"/>
-            <path d="M26.5 17C28.9853 17 31 14.9853 31 12.5C31 10.0147 28.9853 8 26.5 8C24.0147 8 22 10.0147 22 12.5C22 14.9853 24.0147 17 26.5 17Z" fill="white"/>
+      
+      <div className="flex items-center gap-3">
+        <motion.div 
+          className="flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.5 12.5C22.5 15 20.5 17 18 17H14C11.5 17 9.5 15 9.5 12.5C9.5 10 11.5 8 14 8H18C20.5 8 22.5 10 22.5 12.5Z" stroke="white" strokeWidth="1.5"/>
+            <path d="M22.5 19.5C22.5 22 20.5 24 18 24H14C11.5 24 9.5 22 9.5 19.5C9.5 17 11.5 15 14 15H18C20.5 15 22.5 17 22.5 19.5Z" stroke="white" strokeWidth="1.5"/>
           </svg>
-          <span className="text-white font-semibold ml-2">Allbridge</span>
-        </a>
+          <span className="ml-2 text-white font-semibold text-lg">Allbridge</span>
+        </motion.div>
+        
+        <div className="hidden md:flex items-center gap-3">
+          <NavButton label="Developers" variant="outline" />
+          <NavButton label="Contacts" variant="filled" />
+        </div>
+        
+        <button className="md:hidden text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
+    </motion.nav>
+  );
+};
 
-      <div className="flex items-center space-x-4">
-        <a href="#" className="nav-button nav-button-outline hidden md:flex">Developers</a>
-        <a href="#" className="nav-button nav-button-filled">Contacts</a>
-      </div>
-    </motion.header>
+const NavItem = ({ label, active }: { label: string; active: boolean }) => {
+  return (
+    <motion.span
+      className={cn(
+        "text-white/60 cursor-pointer text-sm transition-colors hover:text-white",
+        active && "text-white"
+      )}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {label}
+    </motion.span>
+  );
+};
+
+const NavButton = ({ label, variant }: { label: string; variant: 'outline' | 'filled' }) => {
+  return (
+    <motion.button
+      className={cn(
+        "py-2 px-5 rounded-full text-sm font-medium transition-colors",
+        variant === 'outline' 
+          ? "border border-gray-700 text-white hover:border-gray-500" 
+          : "bg-white text-black hover:bg-gray-100"
+      )}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {label}
+    </motion.button>
   );
 };
 

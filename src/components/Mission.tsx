@@ -38,7 +38,7 @@ const Mission = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <a href="#" className="bg-white text-black font-medium px-6 py-3 rounded-full flex items-center justify-center hover:bg-gray-100 transition-all duration-300 inline-flex">
+              <a href="#" className="bg-white text-black font-medium px-6 py-3 rounded-full flex items-center justify-center hover:bg-gray-100 transition-all duration-300">
                 Discover products
               </a>
             </motion.div>

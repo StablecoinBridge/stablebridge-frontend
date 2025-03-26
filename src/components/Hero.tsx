@@ -1,101 +1,201 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
-    <div className="relative w-full bg-gradient-to-r from-[#090909] to-[#0d1f16] overflow-hidden border-t-4 border-l-4 border-mint">
-      {/* Background stars */}
-      <div className="absolute inset-0 overflow-hidden opacity-50">
-        <div className="star w-4 h-4 top-[15%] left-[10%] animate-pulse">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="#333" />
-          </svg>
-        </div>
-        <div className="star w-6 h-6 top-[35%] left-[25%] animate-float">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="#333" />
-          </svg>
-        </div>
-        <div className="star w-5 h-5 top-[10%] right-[15%] animate-pulse delay-300">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="#333" />
-          </svg>
-        </div>
-        <div className="star w-7 h-7 bottom-[30%] right-[10%] animate-float delay-700">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="#333" />
-          </svg>
-        </div>
-        <div className="star w-6 h-6 bottom-[15%] left-[15%] animate-pulse delay-500">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="#333" />
-          </svg>
-        </div>
+    <div className="relative w-full min-h-[calc(100vh-80px)] flex flex-col">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between z-10 pt-12 lg:pt-24 relative">
+        <motion.div 
+          className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
+            Transfer
+            <br />
+            stablecoins
+            <br />
+            between EVM
+            <br />
+            & non-EVM chains
+          </h1>
+          
+          <motion.button
+            className="flex items-center gap-2 bg-allbridge-green text-black py-3 px-6 rounded-full font-medium hover:bg-allbridge-darkGreen transition-colors"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Swap stablecoins <ArrowRight size={18} />
+          </motion.button>
+        </motion.div>
+        
+        <motion.div 
+          className="lg:w-1/2 relative"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <IllustrationComponent />
+        </motion.div>
       </div>
+      
+      <BackgroundElements />
+    </div>
+  );
+};
 
-      <div className="container mx-auto px-6 pt-10 pb-20 md:py-32 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
-          <motion.div
-            className="md:w-1/2 mb-10 md:mb-0"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.h1 
-              className="text-5xl md:text-6xl font-bold text-white leading-tight mb-8" 
-              variants={itemVariants}
-            >
-              Transfer
-              <br />
-              stablecoins
-              <br />
-              between EVM
-              <br />
-              & non-EVM chains
-            </motion.h1>
-            <motion.div variants={itemVariants}>
-              <a 
-                href="#" 
-                className="bg-mint text-white px-6 py-3 rounded-full inline-flex items-center hover:bg-mint-dark transition-colors"
-              >
-                Swap stablecoins <span className="ml-2">→</span>
-              </a>
-            </motion.div>
-          </motion.div>
-
-          <motion.div 
-            className="md:w-1/2 hero-graphic relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <img 
-              src="/lovable-uploads/6988b2b9-5a66-44aa-bb56-256a734fa6ab.png" 
-              alt="Cryptocurrency transfer illustration" 
-              className="w-full h-auto object-contain"
+const IllustrationComponent = () => {
+  return (
+    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
+      {/* Main Device */}
+      <motion.div 
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] md:w-[320px] z-20"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+      >
+        <div className="rounded-xl bg-allbridge-gray overflow-hidden shadow-lg green-glow">
+          <div className="p-3 bg-black rounded-t-xl">
+            <div className="w-2 h-2 rounded-full bg-red-500 inline-block mr-1"></div>
+            <div className="w-2 h-2 rounded-full bg-yellow-500 inline-block mr-1"></div>
+            <div className="w-2 h-2 rounded-full bg-green-500 inline-block"></div>
+          </div>
+          <div className="p-4 text-xs text-white">
+            <div className="mb-4">
+              <div className="text-allbridge-green mb-1">Messaging</div>
+              <div className="flex justify-between mb-1">
+                <span className="text-white/60">Lorem ipsum</span>
+                <span className="text-white">+0.001</span>
+              </div>
+            </div>
+            <div className="mb-4">
+              <div className="text-allbridge-green mb-1">Extra gas</div>
+              <div className="flex justify-between mb-1">
+                <span className="text-white/60">Lorem ipsum</span>
+                <span className="text-white">+0.08</span>
+              </div>
+            </div>
+            <div>
+              <div className="text-allbridge-green mb-1">Relayer fee</div>
+              <div className="flex justify-between mb-1">
+                <span className="text-white/60">Lorem ipsum</span>
+                <span className="text-white">+0.004</span>
+              </div>
+            </div>
+            <div className="mt-4 pt-2 border-t border-white/10">
+              <div className="text-center text-sm text-allbridge-green">Send</div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Left Coin Stack */}
+      <motion.div 
+        className="absolute top-1/2 left-[15%] transform -translate-y-1/4 w-[80px] md:w-[100px] z-10"
+        animate={{ y: [0, -8, 0], rotate: [0, 2, 0] }}
+        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+      >
+        <div className="relative">
+          <div className="absolute top-0 left-0 w-full h-full bg-teal-500 rounded-full transform -rotate-12"></div>
+          <div className="absolute top-1 left-0 w-full h-full bg-teal-600 rounded-full transform -rotate-6"></div>
+          <div className="absolute top-2 left-0 w-full h-full bg-teal-700 rounded-full"></div>
+          <div className="relative pt-6 pb-4 text-center">
+            <span className="text-white font-bold">Pool</span>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Right Coin Stack */}
+      <motion.div 
+        className="absolute bottom-1/4 right-[10%] w-[80px] md:w-[100px] z-10"
+        animate={{ y: [0, -8, 0], rotate: [0, -2, 0] }}
+        transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 0.5 }}
+      >
+        <div className="relative">
+          <div className="absolute top-0 left-0 w-full h-full bg-blue-500 rounded-full transform rotate-12"></div>
+          <div className="absolute top-1 left-0 w-full h-full bg-blue-600 rounded-full transform rotate-6"></div>
+          <div className="absolute top-2 left-0 w-full h-full bg-blue-700 rounded-full"></div>
+          <div className="relative pt-6 pb-4 text-center">
+            <span className="text-white font-bold">Pool</span>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Other Floating Cards */}
+      <motion.div 
+        className="absolute top-[15%] left-[60%] w-[100px] md:w-[120px] bg-black rounded-lg p-2 shadow-lg"
+        animate={{ y: [0, -7, 0], x: [0, 5, 0] }}
+        transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+      >
+        <div className="rounded-full w-6 h-6 bg-purple-500 mb-1 flex items-center justify-center">
+          <span className="text-white text-xs">Ξ</span>
+        </div>
+      </motion.div>
+      
+      <motion.div 
+        className="absolute bottom-[20%] left-[20%] w-[100px] md:w-[120px] bg-black rounded-lg p-2 shadow-lg"
+        animate={{ y: [0, 7, 0], x: [0, -5, 0] }}
+        transition={{ repeat: Infinity, duration: 9, ease: "easeInOut", delay: 0.7 }}
+      >
+        <div className="rounded-full w-6 h-6 bg-cyan-500 mb-1 flex items-center justify-center">
+          <span className="text-white text-xs">S</span>
+        </div>
+      </motion.div>
+      
+      {/* Green Flow Elements */}
+      <div className="absolute top-1/2 left-0 w-full h-[150px] flex items-center justify-center">
+        <motion.div 
+          className="w-full h-[60px] md:h-[80px]"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.8 }}
+        >
+          <svg width="100%" height="100%" viewBox="0 0 800 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              d="M100,50 C200,120 300,0 400,50 C500,100 600,0 700,50" 
+              stroke="#36D9AC" 
+              strokeWidth="8" 
+              strokeLinecap="round"
+              className="green-glow"
             />
-          </motion.div>
-        </div>
+          </svg>
+        </motion.div>
       </div>
+    </div>
+  );
+};
+
+const BackgroundElements = () => {
+  return (
+    <div className="parallax-bg">
+      {/* Stars */}
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="star"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            width: `${Math.random() * 14 + 6}px`,
+            height: `${Math.random() * 14 + 6}px`,
+          }}
+          animate={{
+            opacity: [0.4, 0.8, 0.4],
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{
+            duration: Math.random() * 4 + 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: Math.random() * 2,
+          }}
+        >
+          <svg viewBox="0 0 24 24" fill="white">
+            <path d="M12,1L15.36,8.9L24,9.92L17.5,15.34L19.2,24L12,19.5L4.8,24L6.5,15.34L0,9.92L8.64,8.9L12,1Z" />
+          </svg>
+        </motion.div>
+      ))}
     </div>
   );
 };
