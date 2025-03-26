@@ -1,4 +1,10 @@
 import { motion } from "framer-motion";
+import SDKImage from "@/assets/sdk.svg";
+import IntegrationImage from "@/assets/integration.svg";
+import DocsImage from "@/assets/reference.svg";
+import AboutImage from "@/assets/about.svg";
+import CollabImage from "@/assets/collaboration-l.svg";
+import CollabImage2 from "@/assets/collaboration-r.svg";
 
 const Developers = () => {
   return (
@@ -42,7 +48,7 @@ const Developers = () => {
             whileHover={{ scale: 1.01 }}
           >
             <div className="absolute right-6 top-6">
-              <img src="/sdk-icon.svg" alt="SDK" className="w-14 h-14" />
+              <img src={SDKImage} alt="SDK" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">SDK</h3>
             <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
@@ -64,7 +70,7 @@ const Developers = () => {
             whileHover={{ scale: 1.01 }}
           >
             <div className="absolute right-6 top-6">
-              <img src="/integration-icon.svg" alt="Integration" className="w-14 h-14" />
+                <img src={IntegrationImage} alt="Integration" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Integration Guidelines</h3>
             <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
@@ -86,7 +92,7 @@ const Developers = () => {
             whileHover={{ scale: 1.01 }}
           >
             <div className="absolute right-6 top-6">
-              <img src="/docs-icon.svg" alt="Documentation" className="w-14 h-14" />
+              <img src={DocsImage} alt="Documentation" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Technical Reference</h3>
             <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
@@ -108,7 +114,7 @@ const Developers = () => {
             whileHover={{ scale: 1.01 }}
           >
             <div className="absolute right-6 top-6">
-              <img src="/about-icon.svg" alt="About" className="w-14 h-14" />
+              <img src={AboutImage} alt="About" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">About Core</h3>
             <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
@@ -141,10 +147,10 @@ const Developers = () => {
           
           {/* Decorative elements */}
           <div className="absolute left-0 bottom-0">
-            <img src="/collab-left.svg" alt="" className="w-32 h-32 opacity-50" />
+            <img src={CollabImage} alt="" className="w-32 h-40 opacity-90" />
           </div>
           <div className="absolute right-0 bottom-0">
-            <img src="/collab-right.svg" alt="" className="w-32 h-32 opacity-50" />
+            <img src={CollabImage2} alt="" className="w-32 h-40 opacity-90" />
           </div>
         </div>
       </div>
