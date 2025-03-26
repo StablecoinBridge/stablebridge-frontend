@@ -19,16 +19,18 @@ const Home = () => {
 
   return (
     <motion.div 
-      className="min-h-screen bg-hero-gradient overflow-hidden"
+      className="min-h-[30vh] backgroundImage px-4 overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <Navbar />
-      <Hero />
-      <Stats />
-      <Mission />
-      <Developers />
+      <div className="bg-black mt-4 rounded-t-2xl">
+        <Navbar />
+        <Hero />
+        <Stats />
+        <Mission />
+        <Developers />
+      </div>
     </motion.div>
   );
 };
