@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import coinIcon from "@/assets/coin.svg";
+import transferIcon from "@/assets/transfer.svg";
 
 const Stats = () => {
   const statVariants = {
@@ -6,8 +8,8 @@ const Stats = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const containerVariants = {
@@ -16,84 +18,104 @@ const Stats = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   return (
-    <div className="w-full bg-dark-bg relative py-20">
-      <div className="container mx-auto px-6">
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-y-16 relative"
+    <div className="w-full bg-[#000011] relative py-20">
+      <div className="container mx-auto px-6 md:max-w-5xl">
+        <motion.div
+          className="grid grid-cols-2 gap-x-32 gap-y-20 relative mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* Cross lines */}
-          <div className="hidden md:block">
-            <div className="cross-line w-px h-full left-1/2 top-0"></div>
-            <div className="cross-line w-full h-px left-0 top-1/2"></div>
-            <div className="absolute w-8 h-8 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark-bg rounded-full border border-gray-700 z-10"></div>
-            <motion.div 
-              className="absolute w-6 h-6 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" fill="#333" />
-              </svg>
-            </motion.div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-full h-full">
+              {/* Vertical line */}
+              <div className="absolute left-1/2 top-0 w-px h-full bg-gray-800/50 transform -translate-x-1/2"></div>
+              {/* Horizontal line */}
+              <div className="absolute top-1/2 left-0 w-full h-px bg-gray-800/50 transform -translate-y-1/2"></div>
+              {/* Center star */}
+              <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <motion.div
+                  className="w-4 h-4"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 50,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"
+                      fill="#333"
+                    />
+                  </svg>
+                </motion.div>
+              </div>
+            </div>
           </div>
 
           {/* Stats */}
-          <motion.div className="text-center md:text-left" variants={statVariants}>
-            <p className="text-gray-text text-xl mb-2">Unique wallets</p>
-            <p className="stats-value text-mint">875,341</p>
-          </motion.div>
-          
-          <motion.div className="text-center md:text-right" variants={statVariants}>
-            <p className="text-gray-text text-xl mb-2">TVL</p>
-            <p className="stats-value text-dollar">$45,795,959</p>
-          </motion.div>
-          
-          <motion.div className="text-center md:text-left" variants={statVariants}>
-            <p className="text-gray-text text-xl mb-2">Total transfers</p>
-            <p className="stats-value text-mint">1,728,627</p>
-          </motion.div>
-          
-          <motion.div className="text-center md:text-right" variants={statVariants}>
-            <p className="text-gray-text text-xl mb-2">Blockchains</p>
-            <p className="stats-value text-blue-accent">21</p>
+          <motion.div
+            className="flex flex-col items-start"
+            variants={statVariants}
+          >
+            <p className="text-gray-400 text-sm font-light mb-1">
+              Unique wallets
+            </p>
+            <p className="text-[#2FD0A6] text-5xl font-normal">875,603</p>
           </motion.div>
 
-          {/* Floating icons near transfer stats */}
-          <motion.div 
-            className="absolute left-1/4 -translate-x-1/2 top-[55%] md:block hidden"
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          <motion.div
+            className="flex flex-col items-end"
+            variants={statVariants}
           >
-            <img src="/lovable-uploads/168ca6b6-2e47-4987-9259-46a4f155ec6b.png" alt="Transfer icon" className="w-10 h-10 opacity-80" />
+            <p className="text-gray-400 text-sm font-light mb-1">TVL</p>
+            <p className="text-[#9FE634] text-5xl font-normal">$45,744,936</p>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col items-start"
+            variants={statVariants}
+          >
+            <p className="text-gray-400 text-sm font-light mb-1">
+              Total transfers
+            </p>
+            <p className="text-[#2FD0A6] text-5xl font-normal">1,728,967</p>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col items-end"
+            variants={statVariants}
+          >
+            <p className="text-gray-400 text-sm font-light mb-1">Blockchains</p>
+            <p className="text-[#4A7CF6] text-5xl font-normal">21</p>
           </motion.div>
         </motion.div>
-
-        {/* Blockchain icons row */}
-        <motion.div 
-          className="mt-24 flex justify-between items-center overflow-x-auto pb-4 space-x-8 md:space-x-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <motion.div
+          className="absolute left-1/4 bottom-6"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
-          {Array.from({ length: 16 }).map((_, i) => (
-            <div key={i} className="blockchain-icon flex-shrink-0">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" strokeWidth="1.5"/>
-                <path d="M8 12L12 16L16 12M12 8L12 16" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          ))}
+          <img src={transferIcon} alt="Transfer icon" className="w-10 h-10" />
+        </motion.div>
+        <motion.div
+          className="absolute right-1/4 top-1/2 -translate-y-1/2"
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <img src={coinIcon} alt="Coin icon" className="w-10 h-10" />
         </motion.div>
       </div>
     </div>

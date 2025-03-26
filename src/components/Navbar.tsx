@@ -58,15 +58,15 @@ const Navbar = () => {
           </a>
         </motion.div>
         <div className="hidden md:flex space-x-8">
-          <NavItem label="Allbridge Core" active={false} />
-          <NavItem label="Allbridge Classic" active={false} />
+          <NavItem label="StableBridge Core" active={false} />
+          <NavItem label="StableBridge Classic" active={false} />
         </div>
       </div>
 
       <div className="hidden md:block">
         <a href="/" className="flex items-center">
           <img src={logo} alt="logo" className="w-10 h-10" />
-          <span className="text-white font-semibold ml-2">Allbridge</span>
+          <span className="text-white font-semibold ml-2">StableBridge</span>
         </a>
       </div>
 

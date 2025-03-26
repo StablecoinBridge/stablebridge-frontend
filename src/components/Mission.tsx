@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 const Mission = () => {
   return (
-    <div className="w-full bg-dark-bg py-20 relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <div className="w-full py-20 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10 md:max-w-5xl">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <motion.div 
             className="md:w-1/2 mb-12 md:mb-0"
@@ -38,9 +39,9 @@ const Mission = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <a href="#" className="bg-white text-black font-medium px-6 py-3 rounded-full flex items-center justify-center hover:bg-gray-100 transition-all duration-300">
+              <Button className="bg-white text-black text-lg font-medium w-3/5 h-[60px] rounded-full flex items-center justify-center hover:bg-gray-100 transition-all duration-300">
                 Discover products
-              </a>
+              </Button>
             </motion.div>
           </motion.div>
 
