@@ -12,7 +12,12 @@ interface PoolCardProps {
 
 const PoolCard: React.FC<PoolCardProps> = ({ pool, chainName }) => {
   return (
-    <div className="pool-card animate-fade-up">
+    <div className="pool-card animate-fade-up" style={{ 
+        animationDelay: `${parseInt(pool.id) * 50}ms`,
+        animation: 'slide-up 0.5s ease-out forwards',
+        opacity: 0,
+        transform: 'translateY(10px)'
+      }}>
       <div className="flex items-center mb-6">
         <div className="flex items-center">
           {getChainIcon(chainName)}
