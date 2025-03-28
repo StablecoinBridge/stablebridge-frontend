@@ -3,6 +3,14 @@ import { Chain, PoolStats } from "@/types";
 import { formatCurrency, formatPercent } from "@/lib/formatters";
 import { Database, Grid2x2Icon, RefreshCw } from "lucide-react";
 import ChainFilter from "./ChainFilter";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 
 interface PoolsHeaderProps {
   stats: PoolStats;
@@ -38,20 +46,16 @@ const PoolsHeader: React.FC<PoolsHeaderProps> = ({
         />
         <div className="flex flex-wrap justify-between items-center">
           <div className="flex items-center gap-2 ml-auto">
-            <div className="flex items-center h-12 px-4 text-sm rounded-full bg-white shadow-sm">
-              <span className="mr-2 text-violet-500">Chain - Token</span>
-              <svg
-                className="w-4 h-4 text-gray-500"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </div>
+            <Select>
+              <SelectTrigger className="rounded-full focus:outline-none focus:ring-0 focus:shadow-none bg-white text-sm w-[180px] px-4 h-12">
+                <SelectValue placeholder="Chain - Token" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="chain">Chain - Token</SelectItem>
+                <SelectItem value="token">Token - Chain</SelectItem>
+                <SelectItem value="apr">APR</SelectItem>
+              </SelectContent>
+            </Select>
 
             <div className="flex items-center gap-2">
               <button className="w-8 h-8 flex items-center justify-center rounded-full bg-violet-100 text-violet-500 ml-2">
@@ -77,19 +81,25 @@ const PoolsHeader: React.FC<PoolsHeaderProps> = ({
       <div className="flex items-center justify-between">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ml-auto">
           <div className="flex flex-col justify-center">
-            <span className="text-sm text-violet-500 font-semibold mb-1">TVL</span>
+            <span className="text-sm text-violet-500 font-semibold mb-1">
+              TVL
+            </span>
             <span className="text-2xl font-medium text-violet-600">
               {formatCurrency(stats.tvl)}
             </span>
           </div>
           <div className="flex flex-col justify-center border-l border-violet-200 pl-4 border-r">
-            <span className="text-sm text-violet-500 font-semibold mb-1">Avg. APR</span>
+            <span className="text-sm text-violet-500 font-semibold mb-1">
+              Avg. APR
+            </span>
             <span className="text-2xl font-medium text-violet-600">
               {formatPercent(stats.apr)}
             </span>
           </div>
           <div className="flex flex-col justify-center">
-            <span className="text-sm text-violet-500 font-semibold mb-1">Rewards</span>
+            <span className="text-sm text-violet-500 font-semibold mb-1">
+              Rewards
+            </span>
             <span className="text-2xl font-medium text-violet-600">
               {formatCurrency(stats.rewards)}
             </span>
@@ -98,7 +108,9 @@ const PoolsHeader: React.FC<PoolsHeaderProps> = ({
         <div className="ml-auto flex items-center gap-2">
           <button
             className={`text-sm font-semibold h-9 w-9 flex items-center justify-center rounded-full ${
-              selectedTimeframe === "7d" ? "bg-violet-600 text-white" : "bg-violet-100 text-violet-600"
+              selectedTimeframe === "7d"
+                ? "bg-violet-600 text-white"
+                : "bg-violet-100 text-violet-600"
             }`}
             onClick={() => setSelectedTimeframe("7d")}
           >
