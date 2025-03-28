@@ -56,6 +56,28 @@
     rgba(54, 217, 172, 0.1) 0%,
     rgba(54, 217, 172, 0.05) 100%
   );
+  --color-teal: {
+    DEFAULT: '#3D8C78',
+    50: '#E6F0ED',
+    100: '#C2DCD3',
+    200: '#9AC7B9',
+    300: '#72B3A1',
+    400: '#4A9E86',
+    500: '#3D8C78',
+    600: '#307060',
+    700: '#245548',
+    800: '#173930',
+    900: '#0B1E18',
+  },
+  --color-crypto: {
+    arbitrum: '#12AAFF',
+    avalanche: '#E84142',
+    base: '#0052FF',
+    bnb: '#F0B90B',
+    celo: '#FBCC5C',
+    ethereum: '#627EEA',
+    optimism: '#FF0420',
+  }
 }
 
 .dark {
@@ -136,16 +158,25 @@
   }
   body {
     @apply bg-green-background;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
-
+  .fade-in {
+    animation: fade-in 0.5s ease-in-out;
+  }
+  .fade-up {
+    animation: fade-up 0.5s ease-in-out;
+  }
+  .pulse-subtle {
+    animation: pulse-subtle 1.5s ease-in-out infinite;
+  }
   .backgroundImage {
     background-image: radial-gradient(
         circle at top,
-        #2fd0a6 0%,
+        #8c58cc 0%,
         transparent 60%
       ),
-      radial-gradient(circle at left, #2fd0a6 0%, transparent 40%),
-      radial-gradient(circle at right, #2fd0a6 0%, transparent 40%),
+      radial-gradient(circle at left, #090909 0%, transparent 40%),
+      radial-gradient(circle at right, #090909 0%, transparent 40%),
       linear-gradient(to bottom, #090909 50%, #090909 100%);
   }
   .star {
@@ -210,4 +241,22 @@
   .blockchain-icon {
     @apply w-6 h-6 opacity-70;
   }
+  
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }

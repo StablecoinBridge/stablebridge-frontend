@@ -43,7 +43,7 @@ const NotFound = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <a href="/" className="bg-mint text-black font-medium px-6 py-3 rounded-full flex items-center justify-center hover:bg-mint-dark transition-all duration-300">
+          <a href="/" className="bg-[#613190] text-white font-medium px-6 py-3 rounded-full flex items-center justify-center hover:bg-[#A755C9] transition-all duration-300">
             Return Home
           </a>
         </motion.div>
