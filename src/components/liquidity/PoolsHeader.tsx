@@ -5,7 +5,7 @@ import ChainFilter from "./ChainFilter";
 import { usePools } from "@/contexts/PoolsContext";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-const PoolsHeader: React.FC = () => {
+const PoolsHeader: React.FC<{ title?: string, icon?: React.ReactNode }> = ({ title = "Pools", icon = <Database className="text-violet-600" /> }) => {
   const { stats, selectedTimeframe, setSelectedTimeframe, chains, selectedChain, setSelectedChain } = usePools();
 
   return (
@@ -13,9 +13,9 @@ const PoolsHeader: React.FC = () => {
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full flex items-center justify-center">
-            <Database className="text-violet-600" />
+            {icon}
           </div>
-          <h1 className="text-3xl font-semibold text-violet-800">Pools</h1>
+          <h1 className="text-3xl font-semibold text-violet-800">{title}</h1>
         </div>
 
         <ChainFilter
