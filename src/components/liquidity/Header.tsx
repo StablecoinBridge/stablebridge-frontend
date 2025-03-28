@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Logo from "./Logo";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface NavItemProps {
   children: React.ReactNode;
@@ -50,14 +51,10 @@ const NavItem: React.FC<NavItemProps> = ({
   );
 };
 
-interface NavBarProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
+const Header: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const { darkMode, toggleDarkMode } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -69,7 +66,6 @@ const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <div className={cn(
       "w-full flex items-center px-6 py-4 transition-all duration-300 z-50",

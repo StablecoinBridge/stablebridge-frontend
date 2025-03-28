@@ -9,7 +9,6 @@ import { usePools } from "@/contexts/PoolsContext";
 import { Chain } from "@/types";
 
 const Liquidity = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { filteredPools } = usePools();
 
@@ -23,15 +22,6 @@ const Liquidity = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
-
   // Group pools by chain
   const groupedPools = filteredPools.reduce((acc, pool) => {
     if (!acc[pool.chain]) {
@@ -43,7 +33,7 @@ const Liquidity = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-purple-300 text-foreground flex flex-col">
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Header />
       <div
         className={cn(
           "container max-w-5xl px-4 md:px-6 lg:px-8 py-4 md:py-8 mx-auto transition-all duration-300",
