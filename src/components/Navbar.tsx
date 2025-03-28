@@ -1,13 +1,17 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
-const NavItem = ({ label, active }: { label: string; active: boolean }) => {
+import { useNavigate, useLocation } from "react-router-dom";
+
+const NavItem = ({ label, active, route }: { label: string; active: boolean; route: string }) => {
+  const navigate = useNavigate();
   return (
     <motion.span
       className={cn(
         "text-white/60 cursor-pointer text-sm transition-colors hover:text-white",
         active && "text-white"
       )}
+      onClick={() => navigate(route)}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
@@ -40,6 +44,9 @@ const NavButton = ({
 };
 
 const Navbar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -58,8 +65,8 @@ const Navbar = () => {
           </a>
         </motion.div>
         <div className="hidden md:flex space-x-8">
-          <NavItem label="StableBridge Core" active={false} />
-          <NavItem label="StableBridge Classic" active={false} />
+          <NavItem label="StableBridge Core" active={currentPath === "/liquidity"} route="/liquidity" />
+          <NavItem label="StableBridge Classic" active={currentPath === "/classic"} route="/classic" />
         </div>
       </div>
 
