@@ -1,6 +1,6 @@
-import React from 'react';
-import { Chain } from '@/types';
-import { getChainIcon } from '@/components/icons/ChainIcons';
+import React from "react";
+import { Chain } from "@/types";
+import { getChainIcon } from "@/components/icons/ChainIcons";
 
 interface ChainFilterProps {
   chains: Chain[];
@@ -8,22 +8,23 @@ interface ChainFilterProps {
   setSelectedChain: (chain: Chain) => void;
 }
 
-const ChainFilter: React.FC<ChainFilterProps> = ({ 
-  chains, 
-  selectedChain, 
-  setSelectedChain 
+const ChainFilter: React.FC<ChainFilterProps> = ({
+  chains,
+  selectedChain,
+  setSelectedChain,
 }) => {
   return (
-    <div className="flex flex-wrap gap-2 my-4">
+    <div className="flex flex-wrap gap-4 my-4">
       {chains.map((chain) => (
         <button
           key={chain}
-          className={`filter-button ${selectedChain === chain ? 'active' : ''}`}
+          className={`cursor-pointer ${
+            selectedChain === chain ? "scale-110" : ""
+          }`}
           onClick={() => setSelectedChain(chain)}
         >
           <span className="flex items-center gap-1.5">
             {getChainIcon(chain)}
-            <span>{chain}</span>
           </span>
         </button>
       ))}

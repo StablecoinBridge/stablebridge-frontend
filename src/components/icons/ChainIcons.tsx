@@ -11,7 +11,7 @@ export const ArbitrumIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-6 w-6', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#12AAFF" />
@@ -25,7 +25,7 @@ export const AvalancheIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-6 w-6', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#E84142" />
@@ -38,7 +38,7 @@ export const BaseIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-6 w-6', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#0052FF" />
@@ -51,7 +51,7 @@ export const BNBIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-6 w-6', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#F0B90B" />
@@ -68,7 +68,7 @@ export const CeloIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-6 w-6', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#FBCC5C" />
@@ -81,7 +81,7 @@ export const EthereumIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-9 w-9', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#627EEA" />
@@ -99,7 +99,7 @@ export const OptimismIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-9 w-9', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#FF0420" />
@@ -112,7 +112,7 @@ export const PolygonIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-9 w-9', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#8247E5" />
@@ -125,7 +125,7 @@ export const AllChainIcon: React.FC<IconProps> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className={cn('h-5 w-5', className)}
+    className={cn('h-9 w-9', className)}
     {...props}
   >
     <circle cx="12" cy="12" r="12" fill="#f0f0f0" />
