@@ -1,34 +1,13 @@
 import React from "react";
-import { Chain, PoolStats } from "@/types";
 import { formatCurrency, formatPercent } from "@/lib/formatters";
 import { Database, Grid2x2Icon, RefreshCw } from "lucide-react";
 import ChainFilter from "./ChainFilter";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { usePools } from "@/contexts/PoolsContext";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
+const PoolsHeader: React.FC = () => {
+  const { stats, selectedTimeframe, setSelectedTimeframe, chains, selectedChain, setSelectedChain } = usePools();
 
-interface PoolsHeaderProps {
-  stats: PoolStats;
-  selectedTimeframe: "7d" | "30d";
-  setSelectedTimeframe: (timeframe: "7d" | "30d") => void;
-  chains: Chain[];
-  selectedChain: Chain;
-  setSelectedChain: (chain: Chain) => void;
-}
-
-const PoolsHeader: React.FC<PoolsHeaderProps> = ({
-  stats,
-  selectedTimeframe,
-  setSelectedTimeframe,
-  chains,
-  selectedChain,
-  setSelectedChain,
-}) => {
   return (
     <div className="flex flex-col w-full mt-2 mb-6 animate-fade-up">
       <div className="flex items-center justify-between mb-3">
