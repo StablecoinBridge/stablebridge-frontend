@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { Chain, PoolStats } from '@/types';
-import { getChains, pools, poolStats } from '@/data/pools';
+import { Chain, PoolStats, ExplorerStats } from '@/types';
+import { getChains, pools, poolStats, explorerStats } from '@/data/pools';
 
 interface PoolsContextType {
   selectedChain: Chain;
@@ -10,6 +10,7 @@ interface PoolsContextType {
   filteredPools: typeof pools;
   stats: PoolStats;
   chains: Chain[];
+  explorerStats: ExplorerStats;
 }
 
 const PoolsContext = createContext<PoolsContextType | undefined>(undefined);
@@ -37,6 +38,7 @@ export const PoolsProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     filteredPools,
     stats: poolStats,
     chains,
+    explorerStats,
   };
 
   return (
