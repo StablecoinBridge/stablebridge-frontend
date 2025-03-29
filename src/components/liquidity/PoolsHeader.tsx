@@ -1,42 +1,21 @@
 import React from "react";
-import { Chain, PoolStats } from "@/types";
 import { formatCurrency, formatPercent } from "@/lib/formatters";
 import { Database, Grid2x2Icon, RefreshCw } from "lucide-react";
 import ChainFilter from "./ChainFilter";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import { usePools } from "@/contexts/PoolsContext";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
+const PoolsHeader: React.FC<{ title?: string, icon?: React.ReactNode }> = ({ title = "Pools", icon = <Database className="text-violet-600" /> }) => {
+  const { stats, selectedTimeframe, setSelectedTimeframe, chains, selectedChain, setSelectedChain, explorerStats } = usePools();
 
-interface PoolsHeaderProps {
-  stats: PoolStats;
-  selectedTimeframe: "7d" | "30d";
-  setSelectedTimeframe: (timeframe: "7d" | "30d") => void;
-  chains: Chain[];
-  selectedChain: Chain;
-  setSelectedChain: (chain: Chain) => void;
-}
-
-const PoolsHeader: React.FC<PoolsHeaderProps> = ({
-  stats,
-  selectedTimeframe,
-  setSelectedTimeframe,
-  chains,
-  selectedChain,
-  setSelectedChain,
-}) => {
   return (
     <div className="flex flex-col w-full mt-2 mb-6 animate-fade-up">
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex md:flex-row flex-col items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full flex items-center justify-center">
-            <Database className="text-violet-600" />
+            {icon}
           </div>
-          <h1 className="text-3xl font-semibold text-violet-800">Pools</h1>
+          <h1 className="text-3xl font-semibold text-violet-800">{title}</h1>
         </div>
 
         <ChainFilter
@@ -79,9 +58,10 @@ const PoolsHeader: React.FC<PoolsHeaderProps> = ({
         </div>
       </div>
       <div className="flex items-center justify-between">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ml-auto">
-          <div className="flex flex-col justify-center">
-            <span className="text-sm text-violet-500 font-semibold mb-1">
+        {title === "Pools" ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ml-auto">
+            <div className="flex flex-col justify-center">
+              <span className="text-sm text-violet-500 font-semibold mb-1">
               TVL
             </span>
             <span className="text-2xl font-medium text-violet-600">
@@ -103,8 +83,28 @@ const PoolsHeader: React.FC<PoolsHeaderProps> = ({
             <span className="text-2xl font-medium text-violet-600">
               {formatCurrency(stats.rewards)}
             </span>
+            </div>
           </div>
-        </div>
+        ): (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ml-auto">
+            <div className="flex flex-col justify-center">
+              <span className="text-sm text-violet-500 font-semibold mb-1">
+                Volume
+              </span>
+              <span className="text-2xl font-medium text-violet-600">
+                {formatCurrency(explorerStats.volume)}
+              </span>
+            </div>
+            <div className="flex flex-col justify-center border-l border-violet-200 pl-4">
+              <span className="text-sm text-violet-500 font-semibold mb-1">
+                Transfers
+              </span>
+              <span className="text-2xl font-medium text-violet-600">
+                {explorerStats.tranfers}
+              </span> 
+            </div>
+          </div>
+        )}
         <div className="ml-auto flex items-center gap-2">
           <button
             className={`text-sm font-semibold h-9 w-9 flex items-center justify-center rounded-full ${
