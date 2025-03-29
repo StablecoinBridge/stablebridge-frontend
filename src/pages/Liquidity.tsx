@@ -7,7 +7,7 @@ import { Chain } from "@/types";
 import { cn } from "@/lib/utils";
 import { getChainIcon } from "@/components/icons/ChainIcons";
 import Footer from "@/components/liquidity/Footer";
-const Liquidity = () => {
+  const Liquidity = () => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [selectedChain, setSelectedChain] = useState<Chain>("All");
   const [selectedTimeframe, setSelectedTimeframe] = useState<"7d" | "30d">(

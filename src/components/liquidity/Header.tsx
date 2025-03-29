@@ -24,8 +24,11 @@ const NavItem: React.FC<NavItemProps> = ({
   children,
   active = false,
   icon: Icon,
+ 
 }) => {
   // Rename icon to Icon for clarity
+  
+  
   return (
     <div
       className={cn(
@@ -51,6 +54,7 @@ const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
   const location = useLocation();
   const currentPath = location.pathname;
   const [isScrolled, setIsScrolled] = useState(false);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +65,7 @@ const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  
   return (
     <div className={cn(
       "w-full flex items-center px-6 py-4 transition-all duration-300 z-50",
@@ -72,15 +76,15 @@ const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
           <Logo className="h-8 w-8 text-purple-600" />
 
           <div className="hidden md:flex items-center gap-2">
-            <NavItem active={currentPath === "/swap"} icon={Repeat2}>
+            <NavItem active={currentPath === "/swap"}  icon={Repeat2} >
               Swap
             </NavItem>
-            <NavItem active={currentPath === "/liquidity"} icon={Database}>
-              Liquidity
+            <NavItem active={currentPath === "/liquidity"} icon={Database} >
+            Liquidity
             </NavItem>
-            <NavItem active={currentPath === "/yield"} icon={PieChart}>
+            {/* <NavItem active={currentPath === "/yield"} icon={PieChart}>
               Yield
-            </NavItem>
+            </NavItem> */}
             <NavItem active={currentPath === "/explorer"} icon={Search}>
               Explorer
             </NavItem>
