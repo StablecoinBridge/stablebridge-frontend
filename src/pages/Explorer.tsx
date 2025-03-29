@@ -6,8 +6,12 @@ import TransferListHeader from "@/components/explorer/TransferListHeader";
 import TransferList from "@/components/explorer/TransferList";
 import Pagination from "@/components/explorer/Pagination";
 import { Search } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+
 const Explorer: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { darkMode } = useTheme();
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -16,6 +20,7 @@ const Explorer: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 5; // Simulating multiple pages
 
@@ -25,7 +30,12 @@ const Explorer: React.FC = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b from-white to-purple-300 text-foreground flex flex-col">
+      <div className={cn(
+        "min-h-screen flex flex-col",
+        darkMode 
+          ? "bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100" 
+          : "bg-gradient-to-b from-white to-purple-300 text-foreground"
+      )}>
         <Header />
         <div
           className={cn(
@@ -35,10 +45,17 @@ const Explorer: React.FC = () => {
         >
           <PoolsHeader
             title="Explorer"
-            icon={<Search className="text-violet-600" />}
+            icon={<Search className={cn(
+              darkMode ? "text-violet-400" : "text-violet-600"
+            )} />}
           />
 
-          <div className="w-full md:max-w-4xl bg-white rounded-3xl shadow-sm p-6">
+          <div className={cn(
+            "w-full md:max-w-4xl rounded-3xl shadow-sm p-6",
+            darkMode 
+              ? "bg-gray-800 border border-gray-700" 
+              : "bg-white"
+          )}>
             <div className="flex items-center justify-between mb-6">
               <TransferListHeader />
               <Pagination
