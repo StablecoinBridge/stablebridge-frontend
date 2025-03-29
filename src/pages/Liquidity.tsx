@@ -2,28 +2,15 @@ import { useState, useEffect } from "react";
 import Header from "@/components/liquidity/Header";
 import PoolsHeader from "@/components/liquidity/PoolsHeader";
 import PoolCard from "@/components/liquidity/PoolCard";
-import { getChains, pools, poolStats } from "@/data/pools";
-import { Chain } from "@/types";
 import { cn } from "@/lib/utils";
 import { getChainIcon } from "@/components/icons/ChainIcons";
 import Footer from "@/components/liquidity/Footer";
-const Liquidity = () => {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-  const [selectedChain, setSelectedChain] = useState<Chain>("All");
-  const [selectedTimeframe, setSelectedTimeframe] = useState<"7d" | "30d">(
-    "7d"
-  );
-  const [filteredPools, setFilteredPools] = useState(pools);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const chains = getChains();
+import { usePools } from "@/contexts/PoolsContext";
+import { Chain } from "@/types";
 
-  useEffect(() => {
-    if (selectedChain === "All") {
-      setFilteredPools(pools);
-    } else {
-      setFilteredPools(pools.filter((pool) => pool.chain === selectedChain));
-    }
-  }, [selectedChain]);
+const Liquidity = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { filteredPools } = usePools();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,15 +22,6 @@ const Liquidity = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
-
   // Group pools by chain
   const groupedPools = filteredPools.reduce((acc, pool) => {
     if (!acc[pool.chain]) {
@@ -51,25 +29,18 @@ const Liquidity = () => {
     }
     acc[pool.chain].push(pool);
     return acc;
-  }, {} as Record<string, typeof pools>);
+  }, {} as Record<string, typeof filteredPools>);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-purple-300 text-foreground flex flex-col">
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Header />
       <div
         className={cn(
           "container max-w-5xl px-4 md:px-6 lg:px-8 py-4 md:py-8 mx-auto transition-all duration-300",
           isScrolled ? "mt-[72px]" : ""
         )}
       >
-        <PoolsHeader
-          stats={poolStats}
-          selectedTimeframe={selectedTimeframe}
-          setSelectedTimeframe={setSelectedTimeframe}
-          chains={chains}
-          selectedChain={selectedChain}
-          setSelectedChain={setSelectedChain}
-        />
+        <PoolsHeader />
 
         <div className="grid grid-cols-1 gap-6 mx-auto">
           {Object.entries(groupedPools).map(([chain, chainPools]) => (

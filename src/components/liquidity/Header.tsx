@@ -12,19 +12,23 @@ import {
   Clock,
 } from "lucide-react";
 import Logo from "./Logo";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface NavItemProps {
   children: React.ReactNode;
   active?: boolean;
   icon?: React.ElementType; // Change to React.ElementType for proper icon type
+  route?: string;
 }
 
 const NavItem: React.FC<NavItemProps> = ({
   children,
   active = false,
   icon: Icon,
+  route,
 }) => {
+  const navigate = useNavigate();
   // Rename icon to Icon for clarity
   return (
     <div
@@ -34,6 +38,11 @@ const NavItem: React.FC<NavItemProps> = ({
           ? "text-violet-600 bg-violet-50"
           : "text-gray-600 hover:text-violet-600 hover:bg-violet-50/50"
       )}
+      onClick={() => {
+        if (route) {
+          navigate(route);
+        }
+      }}  
     >
       {Icon && <Icon className="w-3.5 h-3.5" />}{" "}
       {/* Ensure icon is rendered only if provided */}
@@ -42,14 +51,10 @@ const NavItem: React.FC<NavItemProps> = ({
   );
 };
 
-interface NavBarProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
-
-const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
+const Header: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const { darkMode, toggleDarkMode } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -61,7 +66,6 @@ const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <div className={cn(
       "w-full flex items-center px-6 py-4 transition-all duration-300 z-50",
@@ -72,19 +76,19 @@ const Header: React.FC<NavBarProps> = ({ darkMode, toggleDarkMode }) => {
           <Logo className="h-8 w-8 text-purple-600" />
 
           <div className="hidden md:flex items-center gap-2">
-            <NavItem active={currentPath === "/swap"} icon={Repeat2}>
+            <NavItem active={currentPath === "/swap"} icon={Repeat2} route="/swap">
               Swap
             </NavItem>
-            <NavItem active={currentPath === "/liquidity"} icon={Database}>
+            <NavItem active={currentPath === "/liquidity"} icon={Database} route="/liquidity">
               Liquidity
             </NavItem>
-            <NavItem active={currentPath === "/yield"} icon={PieChart}>
+            <NavItem active={currentPath === "/yield"} icon={PieChart} route="/yield">
               Yield
             </NavItem>
-            <NavItem active={currentPath === "/explorer"} icon={Search}>
+            <NavItem active={currentPath === "/explorer"} icon={Search} route="/explorer">
               Explorer
             </NavItem>
-            <NavItem active={currentPath === "/ranks"} icon={Star}>
+            <NavItem active={currentPath === "/ranks"} icon={Star} route="/ranks">
               Ranks
             </NavItem>
           </div>
