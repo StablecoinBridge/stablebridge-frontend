@@ -6,11 +6,13 @@ import { cn } from "@/lib/utils";
 import { getChainIcon } from "@/components/icons/ChainIcons";
 import Footer from "@/components/liquidity/Footer";
 import { usePools } from "@/contexts/PoolsContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import { Chain } from "@/types";
 
 const Liquidity = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { filteredPools } = usePools();
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +34,12 @@ const Liquidity = () => {
   }, {} as Record<string, typeof filteredPools>);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-purple-300 text-foreground flex flex-col">
+    <div className={cn(
+      "min-h-screen flex flex-col",
+      darkMode 
+        ? "bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100" 
+        : "bg-gradient-to-b from-white to-purple-300 text-foreground"
+    )}>
       <Header />
       <div
         className={cn(
@@ -46,10 +53,18 @@ const Liquidity = () => {
           {Object.entries(groupedPools).map(([chain, chainPools]) => (
             <div key={chain} className="">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                <div className={cn(
+                  "w-8 h-8 rounded-full flex items-center justify-center",
+                  darkMode ? "bg-gray-800" : "bg-gray-100"
+                )}>
                   {getChainIcon(chain as Chain)}
                 </div>
-                <h2 className="text-lg font-medium">{chain}</h2>
+                <h2 className={cn(
+                  "text-lg font-medium",
+                  darkMode ? "text-gray-100" : "text-gray-900"
+                )}>
+                  {chain}
+                </h2>
               </div>
               <div className="space-y-4">
                 {chainPools.map((pool) => (
@@ -59,7 +74,10 @@ const Liquidity = () => {
             </div>
           ))}
           {filteredPools.length === 0 && (
-            <div className="text-center py-8 text-gray-500">
+            <div className={cn(
+              "text-center py-8",
+              darkMode ? "text-gray-400" : "text-gray-500"
+            )}>
               No pools found for the selected chain
             </div>
           )}

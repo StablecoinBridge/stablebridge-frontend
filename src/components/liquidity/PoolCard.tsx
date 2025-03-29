@@ -3,6 +3,8 @@ import { Pool } from "@/types";
 import { formatCurrency, formatPercent } from "@/lib/formatters";
 import { getTokenIcon } from "@/components/icons/TokenIcons";
 import { CircleAlert, ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface PoolCardProps {
   pool: Pool;
@@ -10,10 +12,17 @@ interface PoolCardProps {
 }
 
 const PoolCard: React.FC<PoolCardProps> = ({ pool, chainName }) => {
+  const { darkMode } = useTheme();
+
   return (
     <>
       <div
-        className="bg-[#F9FCFB] backdrop-blur-sm bg-opacity-30 rounded-full p-2 px-4 animate-fade-up"
+        className={cn(
+          "backdrop-blur-sm rounded-full p-2 px-4 animate-fade-up",
+          darkMode 
+            ? "bg-gray-800/30" 
+            : "bg-[#F9FCFB] bg-opacity-30"
+        )}
         style={{
           animationDelay: `${parseInt(pool.id) * 50}ms`,
           animation: "slide-up 0.5s ease-out forwards",
@@ -24,19 +33,38 @@ const PoolCard: React.FC<PoolCardProps> = ({ pool, chainName }) => {
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex items-center">
             {getTokenIcon(pool.token)}
-            <span className="ml-2 font-semibold">{pool.token}</span>
-            <div className="ml-1 p-1 rounded bg-violet-100">
-              <ExternalLink className="w-3 h-3" />
+            <span className={cn(
+              "ml-2 font-semibold",
+              darkMode ? "text-gray-100" : "text-gray-900"
+            )}>
+              {pool.token}
+            </span>
+            <div className={cn(
+              "ml-1 p-1 rounded",
+              darkMode ? "bg-violet-900/30" : "bg-violet-100"
+            )}>
+              <ExternalLink className={cn(
+                "w-3 h-3",
+                darkMode ? "text-violet-400" : "text-violet-600"
+              )} />
             </div>
           </div>
 
           <div className="flex-1 flex justify-between items-center gap-4">
             <div className="">
               <div className="flex items-center gap-2">
-                <div className="text-violet-500 text-sm">TVL</div>
+                <div className={cn(
+                  "text-sm",
+                  darkMode ? "text-violet-400" : "text-violet-500"
+                )}>
+                  TVL
+                </div>
                 <div className="flex items-center">
                   <svg
-                    className="w-4 h-4 text-violet-500 mr-1"
+                    className={cn(
+                      "w-4 h-4 mr-1",
+                      darkMode ? "text-violet-400" : "text-violet-500"
+                    )}
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -50,25 +78,49 @@ const PoolCard: React.FC<PoolCardProps> = ({ pool, chainName }) => {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="font-medium text-violet-500">
+                  <span className={cn(
+                    "font-medium",
+                    darkMode ? "text-violet-400" : "text-violet-500"
+                  )}>
                     {formatCurrency(pool.tvl)}
                   </span>
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-violet-500 font-medium text-xs mt-1">
-                Imbalance <CircleAlert className="w-3 h-3 text-violet-500" />
-                <span className="text-violet-600">{pool.imbalance}</span>
+              <div className={cn(
+                "flex items-center gap-1 font-medium text-xs mt-1",
+                darkMode ? "text-violet-400" : "text-violet-500"
+              )}>
+                Imbalance <CircleAlert className={cn(
+                  "w-3 h-3",
+                  darkMode ? "text-violet-400" : "text-violet-500"
+                )} />
+                <span className={cn(
+                  darkMode ? "text-violet-400" : "text-violet-600"
+                )}>
+                  {pool.imbalance}
+                </span>
               </div>
             </div>
 
             <div className="flex items-center translate-y-2 flex-col">
-              <div className="text-violet-500 text-sm mb-1">APR for 7d</div>
+              <div className={cn(
+                "text-sm mb-1",
+                darkMode ? "text-violet-400" : "text-violet-500"
+              )}>
+                APR for 7d
+              </div>
               <div className="flex items-center gap-1">
-                <span className="font-medium text-violet-500">
+                <span className={cn(
+                  "font-medium",
+                  darkMode ? "text-violet-400" : "text-violet-500"
+                )}>
                   {formatPercent(pool.apr)}
                 </span>
                 <svg
-                  className="w-4 h-4 text-violet-500 mr-1"
+                  className={cn(
+                    "w-4 h-4 mr-1",
+                    darkMode ? "text-violet-400" : "text-violet-500"
+                  )}
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,12 +138,28 @@ const PoolCard: React.FC<PoolCardProps> = ({ pool, chainName }) => {
               <div className="w-4 h-4 mt-1"></div>
             </div>
 
-            <div className="flex flex-col gap-2 bg-violet-50 rounded-lg p-2">
+            <div className={cn(
+              "flex flex-col gap-2 rounded-lg p-2",
+              darkMode ? "bg-violet-900/30" : "bg-violet-50"
+            )}>
               <div className="flex items-center gap-2">
-                <div className="text-violet-500 text-sm">Your LP</div>
+                <div className={cn(
+                  "text-sm",
+                  darkMode ? "text-violet-400" : "text-violet-500"
+                )}>
+                  Your LP
+                </div>
                 <div className="flex items-center">
-                  <span className="text-sm">-</span>
-                  <span className="font-medium ml-1">
+                  <span className={cn(
+                    "text-sm",
+                    darkMode ? "text-gray-400" : "text-gray-600"
+                  )}>
+                    -
+                  </span>
+                  <span className={cn(
+                    "font-medium ml-1",
+                    darkMode ? "text-gray-200" : "text-gray-900"
+                  )}>
                     {formatCurrency(pool.yourLP || 0)}
                   </span>
                 </div>
@@ -99,10 +167,23 @@ const PoolCard: React.FC<PoolCardProps> = ({ pool, chainName }) => {
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="text-violet-500 text-sm">Earned</div>
+                <div className={cn(
+                  "text-sm",
+                  darkMode ? "text-violet-400" : "text-violet-500"
+                )}>
+                  Earned
+                </div>
                 <div className="flex items-center">
-                  <span className="text-sm">$</span>
-                  <span className="font-medium ml-1">
+                  <span className={cn(
+                    "text-sm",
+                    darkMode ? "text-gray-400" : "text-gray-600"
+                  )}>
+                    $
+                  </span>
+                  <span className={cn(
+                    "font-medium ml-1",
+                    darkMode ? "text-gray-200" : "text-gray-900"
+                  )}>
                     {formatCurrency(pool.earned || 0)}
                   </span>
                 </div>
