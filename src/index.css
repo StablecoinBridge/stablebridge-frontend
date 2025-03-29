@@ -96,22 +96,155 @@
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.922 0 0);
+  --sidebar-primary-foreground: oklch(0.205 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark * {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: var(--color-dark-bg) !important;
+  color: var(--color-gray-text);
+}
+
+.dark .bg-green-background {
+  background: var(--color-dark-bg) !important;
+}
+
+.dark .bg-white {
+  background-color: var(--color-card-dark) !important;
+}
+
+.dark .text-gray-900 {
+  color: var(--color-gray-text) !important;
+}
+
+.dark .border-gray-200 {
+  border-color: var(--color-gray) !important;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  background-color: var(--color-gray) !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: var(--color-gray) !important;
+}
+
+.dark .text-gray-600 {
+  color: var(--color-gray-text) !important;
+}
+
+.dark .bg-violet-50 {
+  background-color: rgba(124, 58, 237, 0.1) !important;
+}
+
+.dark .text-violet-500 {
+  color: #a78bfa !important;
+}
+
+.dark .hover\:bg-violet-50:hover {
+  background-color: rgba(124, 58, 237, 0.1) !important;
+}
+
+.dark .bg-secondary\/80 {
+  background-color: rgba(39, 39, 42, 0.8) !important;
+}
+
+.dark .bg-input\/30 {
+  background-color: rgba(39, 39, 42, 0.3) !important;
+}
+
+.dark .bg-input\/50 {
+  background-color: rgba(39, 39, 42, 0.5) !important;
+}
+
+.dark .border-input {
+  border-color: rgba(39, 39, 42, 0.5) !important;
+}
+
+.dark .hover\:bg-accent\/50:hover {
+  background-color: rgba(39, 39, 42, 0.5) !important;
+}
+
+.dark .bg-destructive\/60 {
+  background-color: rgba(239, 68, 68, 0.6) !important;
+}
+
+.dark .dark\:bg-gray-900 {
+  background-color: var(--color-dark-bg) !important;
+}
+
+.dark .dark\:text-white {
+  color: var(--color-gray-text) !important;
+}
+
+.dark .dark\:border-gray-700 {
+  border-color: var(--color-gray) !important;
+}
+
+.dark .dark\:hover\:bg-gray-800:hover {
+  background-color: var(--color-gray) !important;
+}
+
+.dark .dark\:bg-gray-800 {
+  background-color: var(--color-gray) !important;
+}
+
+.dark .dark\:text-gray-300 {
+  color: var(--color-gray-text) !important;
+}
+
+.dark .dark\:bg-violet-900\/20 {
+  background-color: rgba(124, 58, 237, 0.2) !important;
+}
+
+.dark .dark\:text-violet-400 {
+  color: #a78bfa !important;
+}
+
+.dark .dark\:hover\:bg-violet-900\/30:hover {
+  background-color: rgba(124, 58, 237, 0.3) !important;
+}
+
+.dark .dark\:bg-secondary\/80 {
+  background-color: rgba(39, 39, 42, 0.8) !important;
+}
+
+.dark .dark\:bg-input\/30 {
+  background-color: rgba(39, 39, 42, 0.3) !important;
+}
+
+.dark .dark\:bg-input\/50 {
+  background-color: rgba(39, 39, 42, 0.5) !important;
+}
+
+.dark .dark\:border-input {
+  border-color: rgba(39, 39, 42, 0.5) !important;
+}
+
+.dark .dark\:hover\:bg-accent\/50:hover {
+  background-color: rgba(39, 39, 42, 0.5) !important;
+}
+
+.dark .dark\:bg-destructive\/60 {
+  background-color: rgba(239, 68, 68, 0.6) !important;
 }
 
 @theme inline {
@@ -157,7 +290,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-green-background;
+    @apply bg-green-background dark:bg-dark-bg;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   .fade-in {

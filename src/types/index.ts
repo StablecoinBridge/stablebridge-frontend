@@ -18,3 +18,8 @@ export interface PoolStats {
   apr: number;
   rewards: number;
 }
+
+export interface ExplorerStats {
+  volume: number;
+  tranfers: number;
+}

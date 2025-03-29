@@ -1,11 +1,14 @@
-import { Chain, Pool, PoolStats } from '@/types';
+import { Chain, ExplorerStats, Pool, PoolStats } from '@/types';
 
 export const poolStats: PoolStats = {
   tvl: 30297285.29,
   apr: 8.35,
   rewards: 48415.28,
 };
-
+export const explorerStats: ExplorerStats = {
+  volume: 2417307.10,
+  tranfers: 568,
+};
 export const pools: Pool[] = [
   {
     id: '1',
