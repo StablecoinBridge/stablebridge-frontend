@@ -35,8 +35,8 @@ const TransferRow: React.FC<TransferRowProps> = ({ transfer }) => {
   };
 
   return (
-    <div className="flex items-center justify-between py-4 border-b border-[#eaefed]">
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col md:flex-row items-start justify-between py-4 border-b border-[#eaefed]">
+      <div className="flex items-center gap-2 mb-2 md:mb-0">
         <div
           className={cn(
             "w-5 h-5 rounded-full flex items-center justify-center",
@@ -52,7 +52,7 @@ const TransferRow: React.FC<TransferRowProps> = ({ transfer }) => {
         </span>
       </div>
 
-      <div className="flex items-center gap-2 flex-1 justify-end md:justify-center">
+      <div className="flex flex-col sm:flex-row items-center gap-2 flex-1 justify-between md:justify-center">
         <div className="flex flex-col items-end md:items-center">
           <div className="flex items-center">
             <TokenIcon bg={transfer.from.iconBg} />

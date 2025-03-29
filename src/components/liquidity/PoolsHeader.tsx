@@ -10,7 +10,7 @@ const PoolsHeader: React.FC<{ title?: string, icon?: React.ReactNode }> = ({ tit
 
   return (
     <div className="flex flex-col w-full mt-2 mb-6 animate-fade-up">
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex md:flex-row flex-col items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full flex items-center justify-center">
             {icon}

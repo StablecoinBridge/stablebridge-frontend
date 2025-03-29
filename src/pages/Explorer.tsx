@@ -38,7 +38,7 @@ const Explorer: React.FC = () => {
             icon={<Search className="text-violet-600" />}
           />
 
-          <div className="w-full max-w-4xl bg-white rounded-3xl shadow-sm p-6">
+          <div className="w-full md:max-w-4xl bg-white rounded-3xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-6">
               <TransferListHeader />
               <Pagination
