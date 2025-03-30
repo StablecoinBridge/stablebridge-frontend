@@ -5,9 +5,12 @@ import PoolCard from "@/components/liquidity/PoolCard";
 import { cn } from "@/lib/utils";
 import { getChainIcon } from "@/components/icons/ChainIcons";
 import Footer from "@/components/liquidity/Footer";
+  
+
 import { usePools } from "@/contexts/PoolsContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Chain } from "@/types";
+
 
 const Liquidity = () => {
   const [isScrolled, setIsScrolled] = useState(false);
