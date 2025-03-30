@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -11,8 +10,6 @@ import Footer from "@/components/liquidity/Footer";
 const Swap = () => {
       const [darkMode, setDarkMode] = useState<boolean>(false);
       const [isScrolled, setIsScrolled] = useState(false);
-
-      const location = useLocation();
       useEffect(() => {
         const handleScroll = () => {
           const scrollPosition = window.scrollY;
@@ -45,7 +42,7 @@ const Swap = () => {
   return (
 
    <div className="min-h-screen bg-gradient-to-b from-white to-purple-400 text-foreground flex flex-col">
-     <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+    <Header />
       <div className={cn(
             "w-96  mx-auto rounded-4xl my-4 min-h-125 items-center border pe-6 py-4 z-50 backdrop-blur-lg bg-purple shadow ",isScrolled ? "mt-[72px]" : ""
           )}>

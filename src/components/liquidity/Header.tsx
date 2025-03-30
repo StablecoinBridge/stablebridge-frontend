@@ -26,11 +26,7 @@ const NavItem: React.FC<NavItemProps> = ({
   children,
   active = false,
   icon: Icon,
-<<<<<<< HEAD
- 
-=======
   route,
->>>>>>> 3bc5460b495f240af566cb06969e37f401df2741
 }) => {
   const navigate = useNavigate();
   // Rename icon to Icon for clarity
@@ -73,10 +69,6 @@ const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-<<<<<<< HEAD
-  
-=======
->>>>>>> 3bc5460b495f240af566cb06969e37f401df2741
   return (
     <div className={cn(
       "w-full flex items-center px-6 py-4 transition-all duration-300 z-50",
@@ -87,7 +79,6 @@ const Header: React.FC = () => {
           <Logo className="h-8 w-8 text-purple-600" />
 
           <div className="hidden md:flex items-center gap-2">
-<<<<<<< HEAD
             <NavItem active={currentPath === "/swap"}  icon={Repeat2} >
               Swap
             </NavItem>
@@ -98,18 +89,6 @@ const Header: React.FC = () => {
               Yield
             </NavItem> */}
             <NavItem active={currentPath === "/explorer"} icon={Search}>
-=======
-            <NavItem active={currentPath === "/swap"} icon={Repeat2} route="/swap">
-              Swap
-            </NavItem>
-            <NavItem active={currentPath === "/liquidity"} icon={Database} route="/liquidity">
-              Liquidity
-            </NavItem>
-            <NavItem active={currentPath === "/yield"} icon={PieChart} route="/yield">
-              Yield
-            </NavItem>
-            <NavItem active={currentPath === "/explorer"} icon={Search} route="/explorer">
->>>>>>> 3bc5460b495f240af566cb06969e37f401df2741
               Explorer
             </NavItem>
             <NavItem active={currentPath === "/ranks"} icon={Star} route="/ranks">

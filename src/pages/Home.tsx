@@ -5,6 +5,8 @@ import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Mission from "@/components/Mission";
 import Developers from "@/components/Developers";
+import Ecosystems from "@/components/Ecosystem";
+import Enabling from "@/components/Enabling";
 
 const Home = () => {
   useEffect(() => {
@@ -30,6 +32,8 @@ const Home = () => {
         <Stats />
         <Mission />
         <Developers />
+        <Ecosystems/>
+        <Enabling />
       </div>
     </motion.div>
   );
