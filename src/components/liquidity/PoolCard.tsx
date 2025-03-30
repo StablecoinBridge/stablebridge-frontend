@@ -20,8 +20,8 @@ const PoolCard: React.FC<PoolCardProps> = ({ pool, chainName }) => {
         className={cn(
           "backdrop-blur-sm rounded-full p-2 px-4 animate-fade-up",
           darkMode 
-            ? "bg-gray-800/30" 
-            : "bg-[#F9FCFB] bg-opacity-30"
+            ? "!bg-gray-800/30" 
+            : "!bg-violet-100 bg-opacity-30"
         )}
         style={{
           animationDelay: `${parseInt(pool.id) * 50}ms`,

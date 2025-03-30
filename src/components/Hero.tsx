@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import HeroImage from "@/assets/hero.svg";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <div className="relative w-full min-h-[calc(100vh-80px)] flex flex-col">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between z-10 pt-12 lg:pt-24 relative md:max-w-5xl">
-        <motion.div 
+        <motion.div
           className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -20,21 +20,20 @@ const Hero = () => {
             stablecoins
             <br />
             between EVM
-            <br />
-            & non-EVM chains
+            <br />& non-EVM chains
           </h1>
-          
+
           <motion.button
             className="bg-purple flex items-center gap-2 bg-allbridge-green text-black py-3 px-6 rounded-full font-medium hover:bg-allbridge-darkGreen transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/swap')}
+            onClick={() => navigate("/swap")}
           >
             Swap stablecoins <ArrowRight size={18} />
           </motion.button>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="lg:w-1/2 relative"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,7 +42,7 @@ const Hero = () => {
           <IllustrationComponent />
         </motion.div>
       </div>
-      
+
       <BackgroundElements />
     </div>
   );
