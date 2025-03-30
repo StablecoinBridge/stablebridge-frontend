@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import NotFound from './pages/NotFound'
 import Liquidity from './pages/Liquidity'
 import Explorer from './pages/Explorer'
+import Ranks from './pages/Ranks'
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="*" element={<NotFound />} /> 
       <Route path="/liquidity" element={<Liquidity />} />
       <Route path="/explorer" element={<Explorer />} />
+      <Route path="/ranks" element={<Ranks />} />
     </Routes>
     </>
   )
