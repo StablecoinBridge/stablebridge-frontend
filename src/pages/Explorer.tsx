@@ -7,6 +7,7 @@ import TransferList from "@/components/explorer/TransferList";
 import Pagination from "@/components/explorer/Pagination";
 import { Search } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
+import Footer from "@/components/liquidity/Footer";
 
 const Explorer: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -75,6 +76,7 @@ const Explorer: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

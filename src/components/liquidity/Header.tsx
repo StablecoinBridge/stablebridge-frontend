@@ -29,9 +29,7 @@ const NavItem: React.FC<NavItemProps> = ({
   route,
 }) => {
   const navigate = useNavigate();
-  // Rename icon to Icon for clarity
-  
-  
+
   return (
     <div
       className={cn(
@@ -79,17 +77,19 @@ const Header: React.FC = () => {
           <Logo className="h-8 w-8 text-purple-600" />
 
           <div className="hidden md:flex items-center gap-2">
-            <NavItem active={currentPath === "/swap"}  icon={Repeat2} >
+
+
+            <NavItem active={currentPath === "/swap"} icon={Repeat2} route="/swap">
               Swap
             </NavItem>
-            <NavItem active={currentPath === "/liquidity"} icon={Database} >
-            Liquidity
+            <NavItem active={currentPath === "/liquidity"} icon={Database} route="/liquidity">
+              Liquidity
             </NavItem>
-            {/* <NavItem active={currentPath === "/yield"} icon={PieChart}>
+            <NavItem active={currentPath === "/yield"} icon={PieChart} route="/yield">
               Yield
-            </NavItem> */}
-            <NavItem active={currentPath === "/explorer"} icon={Search}>
-              Explorer
+            </NavItem>
+            <NavItem active={currentPath === "/explorer"} icon={Search} route="/explorer">
+                Explorer
             </NavItem>
             <NavItem active={currentPath === "/ranks"} icon={Star} route="/ranks">
               Ranks

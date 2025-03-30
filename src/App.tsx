@@ -7,6 +7,8 @@ import Liquidity from './pages/Liquidity'
 import Swap from './pages/Swap'
 import Ranks from './pages/Ranks'
 import Explorer from './pages/Explorer'
+
+
 function App() {
 
   return (
