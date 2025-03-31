@@ -5,6 +5,7 @@ import DocsImage from "@/assets/collaboration-r.svg";
 import AboutImage from "@/assets/collaboration-r.svg";
 
 
+
 const Enabling = () => {
   return (
     <div className="container mx-auto px-6 py-16 md:max-w-5xl">      

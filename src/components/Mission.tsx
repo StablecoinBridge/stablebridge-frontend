@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import MissionImage from "@/assets/mission.svg";
+import logo from '../assets/logo-purple.png'
 const Mission = () => {
   return (
     <div className="w-full py-20 relative overflow-hidden">
@@ -54,7 +54,7 @@ const Mission = () => {
           >
             <div className="relative w-full max-w-md">
               <img 
-                src={MissionImage} 
+                src={logo} 
                 alt="Allbridge logo" 
                 className="w-full h-auto object-contain"
               />

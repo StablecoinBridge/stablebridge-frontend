@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowDownUp, ArrowRight, Coins, Cylinder, Flame } from "lucide-react";
 import Header from "@/components/liquidity/Header";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/liquidity/Footer";
+
 import { useTheme } from "@/contexts/ThemeContext";
 
 const Swap = () => {
@@ -76,10 +77,10 @@ const Swap = () => {
             Connect wallet
           </div>
         </div>
-        <div className="flex items-center gap-35 sm:flex sm:flex-row-reverse py-3 ">
+        <div className="flex items-center  text-violet-500 gap-30 sm:flex sm:flex-row-reverse py-3 ">
           <strong>~1min</strong>
           <div>
-            <img src="path/to/image.jpg" />
+            <ArrowDownUp size={18}/>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 p-2 ">
@@ -113,31 +114,31 @@ const Swap = () => {
 
         <div className=" w-full grid grid-cols-2 mt-2 gap-4 p-2 bg-violet-50 text-violet-500 mx-3 rounded-2xl">
           <div className="flex items-center ps-3 gap-4 py-1 ">
-            <img src="path/to/image.jpg" />
+            <Flame size={18} />
             <div>
               <strong>Extar Gas</strong>
             </div>
           </div>
 
           <div className="flex flex-row-reverse  items-center pe-5">
-            <img src="path/to/image.jpg" />
+            <Coins/>
           </div>
         </div>
         <div className=" w-full grid grid-cols-2 mt-2 gap-4 p-2 bg-violet-50 text-violet-500 mx-3 rounded-2xl">
           <div className="flex items-center ps-3 gap-4 py-1 ">
-            <img src="path/to/image.jpg" />
+            <Cylinder size={18}/>
             <div>
               <strong>Relayer fee</strong>
             </div>
           </div>
 
           <div className="flex flex-row-reverse  items-center pe-5">
-            <img src="path/to/image.jpg" />
+            <Coins/>
           </div>
         </div>
 
         <button className=" w-full mt-5 connect-button text-center bg-purple-50 text-white-500 font-semibold mx-3 py-2 rounded-full">
-          Send
+         <span className=" text-violet-500">Send</span>
         </button>
       </div>
 

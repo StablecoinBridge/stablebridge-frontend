@@ -26,7 +26,7 @@ const Home = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-[#000000] mt-4 rounded-t-2xl">
+      <div className="bg-[#d18ee8] mt-4 rounded-t-2xl">
         <Navbar />
         <Hero />
         <Stats />

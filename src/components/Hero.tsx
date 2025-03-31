@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import HeroImage from "@/assets/hero.svg";
 import { useNavigate } from "react-router-dom";
 
+import logo from '../assets/logo-purple.png'
+
 const Hero = () => {
   const navigate = useNavigate();
   return (
@@ -24,7 +26,7 @@ const Hero = () => {
           </h1>
 
           <motion.button
-            className="bg-purple flex items-center gap-2 bg-allbridge-green text-black py-3 px-6 rounded-full font-medium hover:bg-allbridge-darkGreen transition-colors"
+            className="bg-purple flex items-center gap-2  text-black py-3 px-6 rounded-full font-medium hover:bg-allbridge-darkGreen "
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/swap")}
@@ -51,7 +53,7 @@ const Hero = () => {
 const IllustrationComponent = () => {
   return (
     <div className="relative w-full ">
-      <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
+      <img src={logo} alt="Hero" className="w-full h-full object-cover" />
     </div>
   );
 };
