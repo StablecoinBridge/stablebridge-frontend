@@ -1,151 +1,76 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { ArrowDownUpIcon, ArrowRight, CoinsIcon, Droplet, Gift } from "lucide-react";
-import Header from "@/components/liquidity/Header";
-import { cn } from "@/lib/utils";
-import Footer from "@/components/liquidity/Footer";
-import { useTheme } from "@/contexts/ThemeContext";
-import { Switch } from "@/components/ui/switch";
-import Avax from 'cryptocurrency-icons/svg/color/avax.svg';
-import Usdt from 'cryptocurrency-icons/svg/color/usdt.svg';
+import { useState } from "react";
+import TransactionCard from "@/components/swap/TransactionCard";
+import BestRatesCard from "@/components/swap/BestRatesCard";
+import DetailsCard from "@/components/swap/DetailsCard";
+import { Settings, Star } from "lucide-react";
+
 const Swap = () => {
-  const { darkMode } = useTheme();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeCards, setActiveCards] = useState<{ [key: string]: boolean }>({
+    rates: false,
+    details: false,
+  });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = "auto";
-    document.documentElement.style.backgroundColor = "#090909";
-
-    return () => {
-      document.body.style.overflow = "";
-      document.documentElement.style.backgroundColor = "";
-    };
-  }, []);
+  const toggleCard = (card: string) => {
+    setActiveCards((prev) => ({
+      ...prev,
+      [card]: !prev[card],
+    }));
+  };
 
   return (
-    <div
-      className={cn(
-        "min-h-screen flex flex-col justify-between",
-        darkMode
-          ? "bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100"
-          : "bg-gradient-to-b from-white to-purple-300 text-foreground"
-      )}
-    >
-      <Header />
-      <div
-        className={cn(
-          "w-96 mx-auto rounded-4xl my-4 min-h-125 items-center border pe-6 py-4 z-50 backdrop-blur-lg bg-purple shadow",
-          isScrolled ? "mt-[72px]" : ""
-        )}
-      >
-        <div className="grid grid-cols-2 gap-4 p-2 ">
-          <div className="">
-            <h1 className="text-2xl ps-6 mt-4"> 0.0</h1>
-          </div>
-          <div className="flex w-full">
-            <motion.button
-              className="w-100 shadow border bg-purple flex items-center gap-2 bg-allbridge-green text-black py-1 px-6 rounded-full hover:bg-allbridge-darkGreen transition-colors float-right"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="flex items-center gap-5">
-                <CoinsIcon className="text-purple-500" />
-                <div>
-                  <strong>USDT</strong>
-                  <br />
-                  <span className="text-[10px]">Arbrtium</span>
-                </div>
-              </div>{" "}
-              <ArrowRight size={18} />
-            </motion.button>
-          </div>
-          <div className="connect-button text-center bg-violet-50 text-violet-500 font-semibold mx-3 py-2 rounded-full">
-            Connect wallet
-          </div>
-        </div>
-        <div className="flex items-center gap-35 sm:flex sm:flex-row-reverse py-3 ">
-          <strong>~1min</strong>
-          <div>
-            <ArrowDownUpIcon className="text-purple-500 w-6 h-6 bg-purple-50 rounded-full p-1" />
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-4 p-2 ">
-          <div className="">
-            <h1 className="text-2xl ps-6 mt-4"> 0.0</h1>
-          </div>
-          <div className="flex w-full">
-            <motion.button
-              className=" mx-auto w-64 shadow border bg-purple flex items-center gap-2 bg-allbridge-green text-black py-1 px-6 rounded-full font-medium hover:bg-allbridge-darkGreen transition-colors float-right"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="flex items-center gap-5">
-                <CoinsIcon className="text-purple-500" />
-                <div>
-                  <strong>USDT</strong>
-                  <br />
-                  <span className="text-[10px]">Arbrtium</span>
-                </div>
-              </div>{" "}
-              <ArrowRight size={18} />
-            </motion.button>
-          </div>
-          <div className="connect-button text-center bg-violet-50 text-violet-500 font-semibold  py-2 rounded-full">
-            Connect wallet
-          </div>
-          <div className="connect-button text-center border text-violet-500 font-semibold  py-2 rounded-full">
-            Paste address
-          </div>
+    <div className="min-h-screen flex items-center justify-center bg-[#edf5f3]">
+      <div className="relative max-w-5xl w-full flex items-center justify-center">
+        {/* Left side icons */}
+        <div className="absolute left-14 top-2 flex flex-col gap-4 z-20">
+          <button
+            onClick={() => toggleCard("rates")}
+            className={`p-3 rounded-full bg-white shadow-md transition-all hover:shadow-lg ${
+              activeCards.rates ? "text-purple-600 " : "text-purple-700"
+            }`}
+          >
+            <Star size={20} />
+          </button>
         </div>
 
-        <div className=" w-full grid grid-cols-2 mt-2 gap-4 p-2 bg-violet-50 text-violet-500 mx-3 rounded-2xl">
-          <div className="flex items-center ps-3 gap-4 py-1 ">
-            <Droplet className="text-purple-500 w-5 h-5" />
-            <div>
-              <strong>Extar Gas</strong>
-            </div>
-          </div>
-
-          <div className="flex items-center pe-5 flex-row-reverse">
-            <Switch className="text-purple-500"/>
-          </div>
-        </div>
-        <div className=" w-full grid grid-cols-2 mt-2 gap-4 p-2 bg-violet-50 text-violet-500 mx-3 rounded-2xl">
-          <div className="flex items-center ps-3 gap-4 py-1 ">
-            <Gift className="text-purple-500 w-5 h-5" />
-            <div>
-              <strong>Relayer fee</strong>
-            </div>
-          </div>
-
-          <div className="flex gap-2 text-xs items-center pe-5 flex-row-reverse">
-            <div className="flex hover:bg-purple-100 cursor-pointer rounded-full p-2">
-              <img src={Usdt} alt="USDT" className="w-4 h-4" />
-              <p>USDT</p>
-            </div>
-            <div className="flex bg-purple-100 cursor-pointer rounded-full p-2">
-              <img src={Avax} alt="AVAX" className="w-4 h-4" />
-              <p>AVAX</p>
-            </div>
-          </div>
+        {/* Right side icon */}
+        <div className="absolute right-10 top-2 z-20">
+          <button
+            onClick={() => toggleCard("details")}
+            className={`p-3 rounded-full bg-white shadow-md transition-all hover:shadow-lg ${
+              activeCards.details ? "text-purple-600" : "text-purple-700"
+            }`}
+          >
+            <Settings size={20} />
+          </button>
         </div>
 
-        <button className=" w-full mt-5 font-semibold text-center bg-purple-500 text-white mx-3 py-2.5 rounded-full">
-          Send
-        </button>
+        {/* Left popup card */}
+        <div
+          className={`absolute -left-24 top-6 transition-all duration-300 z-10 ${
+            activeCards.rates
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 -translate-x-10 pointer-events-none"
+          }`}
+        >
+          <BestRatesCard />
+        </div>
+
+        {/* Right popup card */}
+        <div
+          className={`absolute -right-26 top-10 transition-all duration-300 z-10 ${
+            activeCards.details
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-10 pointer-events-none"
+          }`}
+        >
+          <DetailsCard />
+        </div>
+
+        {/* Center card */}
+        <div className="z-10">
+          <TransactionCard />
+        </div>
       </div>
-
-      <Footer />
     </div>
   );
 };
