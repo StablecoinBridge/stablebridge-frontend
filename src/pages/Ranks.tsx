@@ -7,6 +7,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import Header from "@/components/liquidity/Header";
 import { cn } from "@/lib/utils";
 import { Coins, Crown, RotateCcw, Send, Star } from "lucide-react";
+import Footer from "@/components/liquidity/Footer";
 
 const Ranks = () => {
   const players = [
@@ -50,7 +51,7 @@ const Ranks = () => {
   return (
     <div
       className={cn(
-        "min-h-screen flex flex-col",
+        "min-h-screen flex flex-col justify-between",
         darkMode
           ? "bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100"
           : "bg-gradient-to-b from-white to-purple-300 text-foreground"
@@ -185,6 +186,7 @@ const Ranks = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

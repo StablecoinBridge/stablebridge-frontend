@@ -7,7 +7,7 @@ import TransferList from "@/components/explorer/TransferList";
 import Pagination from "@/components/explorer/Pagination";
 import { Search } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
-
+import Footer from "@/components/liquidity/Footer";
 const Explorer: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { darkMode } = useTheme();
@@ -31,7 +31,7 @@ const Explorer: React.FC = () => {
   return (
     <>
       <div className={cn(
-        "min-h-screen flex flex-col",
+        "min-h-screen flex flex-col justify-between",
         darkMode 
           ? "bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100" 
           : "bg-gradient-to-b from-white to-purple-300 text-foreground"
@@ -74,6 +74,7 @@ const Explorer: React.FC = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
