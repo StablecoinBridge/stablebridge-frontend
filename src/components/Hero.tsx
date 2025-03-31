@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import HeroImage from "@/assets/hero.svg";
 import { useNavigate } from "react-router-dom";
 
 import logo from '../assets/logo-purple.png'
