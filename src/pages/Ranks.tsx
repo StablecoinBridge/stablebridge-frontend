@@ -7,6 +7,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import Header from "@/components/liquidity/Header";
 import { cn } from "@/lib/utils";
 import { Coins, Crown, RotateCcw, Send, Star } from "lucide-react";
+import Footer from "@/components/liquidity/Footer";
 
 const Ranks = () => {
   const players = [
@@ -57,6 +58,7 @@ const Ranks = () => {
       )}
     >
       <Header />
+
       <div
         className={cn(
           "container max-w-5xl px-4 md:px-6 lg:px-8 py-4 md:py-8 mx-auto transition-all duration-300",
@@ -185,6 +187,7 @@ const Ranks = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
