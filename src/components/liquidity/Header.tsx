@@ -6,7 +6,6 @@ import {
   Repeat2,
   Database,
   Wallet,
-  PieChart,
   Search,
   Star,
   Clock,
@@ -84,9 +83,6 @@ const Header: React.FC = () => {
             </NavItem>
             <NavItem active={currentPath === "/liquidity"} icon={Database} route="/liquidity">
               Liquidity
-            </NavItem>
-            <NavItem active={currentPath === "/yield"} icon={PieChart} route="/yield">
-              Yield
             </NavItem>
             <NavItem active={currentPath === "/explorer"} icon={Search} route="/explorer">
                 Explorer
