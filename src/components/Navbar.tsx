@@ -65,7 +65,7 @@ const Navbar = () => {
           </a>
         </motion.div>
         <div className="hidden md:flex space-x-8">
-          <NavItem label="StableBridge Core" active={currentPath === "/liquidity"} route="/liquidity" />
+          <NavItem label="StableBridge Core" active={currentPath === "/swap"} route="/swap" />
           <NavItem label="StableBridge Classic" active={currentPath === "/classic"} route="/classic" />
         </div>
       </div>

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowDownUpIcon, ArrowRight, CoinsIcon, Droplet, Gift } from "lucide-react";
 import Header from "@/components/liquidity/Header";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/liquidity/Footer";
 import { useTheme } from "@/contexts/ThemeContext";
-
+import { Switch } from "@/components/ui/switch";
+import Avax from 'cryptocurrency-icons/svg/color/avax.svg';
+import Usdt from 'cryptocurrency-icons/svg/color/usdt.svg';
 const Swap = () => {
   const { darkMode } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,7 +44,7 @@ const Swap = () => {
       <Header />
       <div
         className={cn(
-          "w-96  mx-auto rounded-4xl my-4 min-h-125 items-center border pe-6 py-4 z-50 backdrop-blur-lg bg-purple shadow ",
+          "w-96 mx-auto rounded-4xl my-4 min-h-125 items-center border pe-6 py-4 z-50 backdrop-blur-lg bg-purple shadow",
           isScrolled ? "mt-[72px]" : ""
         )}
       >
@@ -57,7 +59,7 @@ const Swap = () => {
               whileTap={{ scale: 0.95 }}
             >
               <div className="flex items-center gap-5">
-                <img src="path/to/image.jpg" />
+                <CoinsIcon className="text-purple-500" />
                 <div>
                   <strong>USDT</strong>
                   <br />
@@ -74,7 +76,7 @@ const Swap = () => {
         <div className="flex items-center gap-35 sm:flex sm:flex-row-reverse py-3 ">
           <strong>~1min</strong>
           <div>
-            <img src="path/to/image.jpg" />
+            <ArrowDownUpIcon className="text-purple-500 w-6 h-6 bg-purple-50 rounded-full p-1" />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 p-2 ">
@@ -88,7 +90,7 @@ const Swap = () => {
               whileTap={{ scale: 0.95 }}
             >
               <div className="flex items-center gap-5">
-                <img src="path/to/image.jpg" />
+                <CoinsIcon className="text-purple-500" />
                 <div>
                   <strong>USDT</strong>
                   <br />
@@ -108,30 +110,37 @@ const Swap = () => {
 
         <div className=" w-full grid grid-cols-2 mt-2 gap-4 p-2 bg-violet-50 text-violet-500 mx-3 rounded-2xl">
           <div className="flex items-center ps-3 gap-4 py-1 ">
-            <img src="path/to/image.jpg" />
+            <Droplet className="text-purple-500 w-5 h-5" />
             <div>
               <strong>Extar Gas</strong>
             </div>
           </div>
 
-          <div className="flex flex-row-reverse  items-center pe-5">
-            <img src="path/to/image.jpg" />
+          <div className="flex items-center pe-5 flex-row-reverse">
+            <Switch className="text-purple-500"/>
           </div>
         </div>
         <div className=" w-full grid grid-cols-2 mt-2 gap-4 p-2 bg-violet-50 text-violet-500 mx-3 rounded-2xl">
           <div className="flex items-center ps-3 gap-4 py-1 ">
-            <img src="path/to/image.jpg" />
+            <Gift className="text-purple-500 w-5 h-5" />
             <div>
               <strong>Relayer fee</strong>
             </div>
           </div>
 
-          <div className="flex flex-row-reverse  items-center pe-5">
-            <img src="path/to/image.jpg" />
+          <div className="flex gap-2 text-xs items-center pe-5 flex-row-reverse">
+            <div className="flex hover:bg-purple-100 cursor-pointer rounded-full p-2">
+              <img src={Usdt} alt="USDT" className="w-4 h-4" />
+              <p>USDT</p>
+            </div>
+            <div className="flex bg-purple-100 cursor-pointer rounded-full p-2">
+              <img src={Avax} alt="AVAX" className="w-4 h-4" />
+              <p>AVAX</p>
+            </div>
           </div>
         </div>
 
-        <button className=" w-full mt-5 connect-button text-center bg-purple-50 text-white-500 font-semibold mx-3 py-2 rounded-full">
+        <button className=" w-full mt-5 font-semibold text-center bg-purple-500 text-white mx-3 py-2.5 rounded-full">
           Send
         </button>
       </div>
