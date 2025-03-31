@@ -21,7 +21,7 @@ const Swap = () => {
     <div className="min-h-screen flex items-center justify-center bg-[#edf5f3]">
       <div className="relative max-w-5xl w-full flex items-center justify-center">
         {/* Left side icons */}
-        <div className="absolute left-14 top-2 flex flex-col gap-4 z-20">
+        <div className={`absolute top-2 transition-all duration-300 z-20 ${activeCards.rates ? "left-14" : "left-44"}`}>
           <button
             onClick={() => toggleCard("rates")}
             className={`p-3 rounded-full bg-white shadow-md transition-all hover:shadow-lg ${
@@ -33,7 +33,7 @@ const Swap = () => {
         </div>
 
         {/* Right side icon */}
-        <div className="absolute right-10 top-2 z-20">
+        <div className={`absolute right-10 transition-all top-2 duration-300 z-20 ${activeCards.details ? "right-10" : "right-54"}`}>
           <button
             onClick={() => toggleCard("details")}
             className={`p-3 rounded-full bg-white shadow-md transition-all hover:shadow-lg ${
