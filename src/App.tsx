@@ -5,8 +5,9 @@ import { Route, Routes } from 'react-router-dom'
 import NotFound from './pages/NotFound'
 import Liquidity from './pages/Liquidity'
 import Swap from './pages/Swap'
-import Explorer from './pages/Explorer'
 import Ranks from './pages/Ranks'
+import Explorer from './pages/Explorer'
+
 
 function App() {
 
@@ -19,7 +20,6 @@ function App() {
       <Route path="/explorer" element={<Explorer />} />
       <Route path="/ranks" element={<Ranks />} />
       <Route path="*" element={<NotFound />} /> 
-
     </Routes>
     </>
   )

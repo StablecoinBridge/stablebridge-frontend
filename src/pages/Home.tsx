@@ -5,6 +5,8 @@ import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Mission from "@/components/Mission";
 import Developers from "@/components/Developers";
+import Ecosystems from "@/components/Ecosystem";
+import Enabling from "@/components/Enabling";
 
 const Home = () => {
   useEffect(() => {
@@ -24,12 +26,14 @@ const Home = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-[#000000] mt-4 rounded-t-2xl">
+      <div className="bg-[#d18ee8] mt-4 rounded-t-2xl">
         <Navbar />
         <Hero />
         <Stats />
         <Mission />
         <Developers />
+        <Ecosystems/>
+        <Enabling />
       </div>
     </motion.div>
   );
