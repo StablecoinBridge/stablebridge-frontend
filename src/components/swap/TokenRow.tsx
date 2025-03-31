@@ -26,7 +26,7 @@ const TokenRow = ({ symbol, network, iconColor, networkIcon }: TokenRowProps) =>
           </p>
         </div>
       </div>
-      <ChevronRight className="text-gray-400" size={18} />
+      <ChevronRight className="text-gray-400" size={20} />
     </div>
   );
 };

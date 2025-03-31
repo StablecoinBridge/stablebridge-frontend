@@ -2,7 +2,7 @@ import { ChevronDown, RefreshCw } from "lucide-react";
 
 const DetailsCard = () => {
   return (
-    <div className="bg-white rounded-3xl shadow-lg p-6 w-[360px]">
+    <div className="bg-[rgba(255,255,255,0.3)] backdrop-blur-sm rounded-3xl shadow-lg p-6 w-[360px]">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-2 text-purple-700">
           <h3 className="text-lg font-medium">Details</h3>
@@ -63,9 +63,9 @@ const DetailsCard = () => {
           </div>
         </div>
         
-        <div className="bg-gray-100 h-0.5 rounded-full w-full mb-3 relative">
-          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white px-2 flex items-center">
-            <span className="text-xs text-gray-500">Wormhole</span>
+        <div className="bg-purple-100 h-0.5 rounded-full w-full mb-3 relative">
+          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-200 p-2 rounded-full flex items-center">
+            <span className="text-xs text-purple-600">Wormhole</span>
             <ChevronDown size={12} className="text-gray-500 ml-1" />
           </div>
         </div>

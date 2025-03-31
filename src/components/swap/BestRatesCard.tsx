@@ -42,7 +42,7 @@ const RateRow = ({ fromSymbol, fromNetwork, toSymbol, toNetwork, rate }: RateRow
 
 const BestRatesCard = () => {
   return (
-    <div className="bg-white rounded-3xl shadow-lg p-6 w-[360px]">
+    <div className="bg-[rgba(255,255,255,0.3)] backdrop-blur-sm rounded-3xl shadow-lg p-6 w-[360px]">
       <div className="flex items-center gap-2 mb-3 text-purple-700">
         <h3 className="text-lg font-medium">Best Rates</h3>
         <span className="text-sm text-gray-400">ⓘ</span>
