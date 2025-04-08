@@ -3,7 +3,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { cn } from '@/lib/utils'
 import  { useEffect, useState } from 'react'
 import Index from '@/components/analytics/Index'
-
+import Footer from '@/components/liquidity/Footer'
 const Analytics = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const { darkMode } = useTheme();
@@ -32,6 +32,7 @@ const Analytics = () => {
         >
             <Index />
         </div>
+        <Footer />
     </div>
   )
 }
