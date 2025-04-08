@@ -77,7 +77,16 @@
     celo: '#FBCC5C',
     ethereum: '#627EEA',
     optimism: '#FF0420',
-  }
+  },
+  --color-dashboard-dark: #171923,
+  --color-dashboard-card: #1A202C,
+  --color-dashboard-accent: #2D3748,
+  --color-dashboard-blue: #4299E1,
+  --color-dashboard-lightblue: #63B3ED,
+  --color-dashboard-text: #A0AEC0,
+  --color-dashboard-highlight: #F687B3,
+  --color-dashboard-red: #FEB2B2,
+  --color-dashboard-gold: #F6AD55
 }
 
 .dark {
@@ -246,7 +255,15 @@
 .dark .dark\:bg-destructive\/60 {
   background-color: rgba(239, 68, 68, 0.6) !important;
 }
+.gradient-chart-eura {
+  stop-color: #A8A29E;
+  stop-opacity: 0.5;
+}
 
+.gradient-chart-usda {
+  stop-color: #F87171;
+  stop-opacity: 0.5;
+}
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
