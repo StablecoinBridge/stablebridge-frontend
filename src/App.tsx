@@ -7,7 +7,7 @@ import Liquidity from './pages/Liquidity'
 import Swap from './pages/Swap'
 import Ranks from './pages/Ranks'
 import Explorer from './pages/Explorer'
-
+import Analytics from './pages/Analytics'
 
 function App() {
 
@@ -19,6 +19,7 @@ function App() {
       <Route path="/liquidity" element={<Liquidity />} />
       <Route path="/explorer" element={<Explorer />} />
       <Route path="/ranks" element={<Ranks />} />
+      <Route path="/analytics" element={<Analytics />} />
       <Route path="*" element={<NotFound />} /> 
     </Routes>
     </>
