@@ -1,9 +1,8 @@
 
-export type Chain = 'All' | 'Arbitrum' | 'Avalanche' | 'Base' | 'BNB Chain' | 'Celo' | 'Ethereum' | 'Optimism' | 'Polygon';
-
+export type Chain = 'All' | 'ARB' | 'AVA' | 'BAS' | 'BSC' | 'CEL' | 'ETH' | 'OPT' | 'POL';
 export interface Pool {
   id: string;
-  chain: Chain;
+  chain: String;
   token: 'USDC' | 'USDT';
   tvl: number;
   apr: number;
@@ -11,6 +10,7 @@ export interface Pool {
   imbalanceValue: number;
   yourLP?: number;
   earned?: number;
+  chainAbbreviation: string;
 }
 
 export interface PoolStats {
