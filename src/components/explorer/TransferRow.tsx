@@ -3,6 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import TokenIcon from "./TokenIcon";
 import { useTheme } from "@/contexts/ThemeContext";
+import { formatCurrency  } from "@/lib/formatters";
 
 interface TransferRowProps {
   transfer: {
@@ -13,18 +14,20 @@ interface TransferRowProps {
       token: string;
       amount: string;
       tokenType: "USDC" | "USDT";
-      iconBg: string;
+      icon: string;
     };
     to: {
       address: string;
       token: string;
       amount: string;
       tokenType: "USDC" | "USDT" | "USDC.e";
-      iconBg: string;
+      icon: string;
     };
     timestamp: string;
   };
 }
+
+
 
 const TransferRow: React.FC<TransferRowProps> = ({ transfer }) => {
   const { darkMode } = useTheme();
@@ -66,12 +69,12 @@ const TransferRow: React.FC<TransferRowProps> = ({ transfer }) => {
       <div className="flex flex-col sm:flex-row items-center gap-2 flex-1 justify-between md:justify-center">
         <div className="flex flex-col items-end md:items-center">
           <div className="flex items-center">
-            <TokenIcon bg={transfer.from.iconBg} />
+            <TokenIcon bg={transfer.from.icon} />
             <span className={cn(
               "text-sm font-medium ml-2",
               darkMode ? "text-gray-200" : "text-gray-900"
             )}>
-              {transfer.from.address}
+              {formatAddress(transfer.from.address)}
             </span>
           </div>
           <div className="flex items-center mt-1">
@@ -79,7 +82,7 @@ const TransferRow: React.FC<TransferRowProps> = ({ transfer }) => {
               "text-sm",
               darkMode ? "text-gray-400" : "text-[#4d5e6f]"
             )}>
-              {transfer.from.amount} {transfer.from.tokenType}
+              {formatCurrency(Number(transfer.from.amount??0)).slice(1)} {transfer.from.tokenType}
             </span>
           </div>
         </div>
@@ -141,12 +144,12 @@ const TransferRow: React.FC<TransferRowProps> = ({ transfer }) => {
 
         <div className="flex flex-col items-start md:items-center">
           <div className="flex items-center">
-            <TokenIcon bg={transfer.to.iconBg} />
+            <TokenIcon bg={transfer.to.icon} />
             <span className={cn(
               "text-sm font-medium ml-2",
               darkMode ? "text-gray-200" : "text-gray-900"
             )}>
-              {transfer.to.address}
+              {formatAddress(transfer.to.address)}
             </span>
           </div>
           <div className="flex items-center mt-1">
@@ -154,7 +157,7 @@ const TransferRow: React.FC<TransferRowProps> = ({ transfer }) => {
               "text-sm",
               darkMode ? "text-gray-400" : "text-[#4d5e6f]"
             )}>
-              {transfer.to.amount} {transfer.to.tokenType}
+              {formatCurrency(Number(transfer.to.amount??0)).slice(1)} {transfer.to.tokenType}
             </span>
           </div>
         </div>
