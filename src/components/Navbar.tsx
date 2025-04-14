@@ -57,7 +57,7 @@ const NavButton = ({
       className={cn(
         "py-2 px-5 rounded-full text-sm font-medium transition-colors",
         variant === "outline"
-          ? "border border-gray-700 text-white hover:border-gray-500"
+          ? "border border-purple-600 text-white hover:border-purple-500"
           : "bg-white text-black hover:bg-gray-100"
       )}
       whileHover={{ scale: 1.05 }}
@@ -144,7 +144,7 @@ const Navbar = () => {
             Company
           </a>
         </motion.div>
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-8 items-center">
           <NavItem
             label="StableBridge Core"
             active={currentPath === "/swap"}

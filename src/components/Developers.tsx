@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import SDKImage from "@/assets/sdk.svg";
-import IntegrationImage from "@/assets/integration.svg";
-import DocsImage from "@/assets/reference.svg";
-import AboutImage from "@/assets/about.svg";
-import CollabImage from "@/assets/collaboration-l.svg";
+import SDKImage from "@/assets/Icon 1 .svg";
+import IntegrationImage from "@/assets/code icon .svg";
+import DocsImage from "@/assets/file setting .svg";
+import AboutImage from "@/assets/navigation icon .svg";
+import CollabImage from "@/assets/dialogue .svg";
 import CollabImage2 from "@/assets/collaboration-r.svg";
 import CoreBg from "@/assets/core-bg.png";
 
@@ -13,11 +13,7 @@ const Developers = () => {
       <div className="w-full relative overflow-hidden">
         {/* Large logo watermark */}
         <div className="absolute  right-0 top-0 w-[70%] h-full opacity-30">
-        <img 
-          src="/logo-watermark.svg" 
-          alt="Logo watermark" 
-          className="w-full h-full object-cover"
-        />
+
       </div>
 
 
@@ -52,7 +48,7 @@ const Developers = () => {
               <img src={SDKImage} alt="SDK" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">SDK</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
               Explore our SDK to bring cross-chain functionality to your protocol
             </p>
             <motion.a
@@ -74,7 +70,7 @@ const Developers = () => {
                 <img src={IntegrationImage} alt="Integration" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Integration Guidelines</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
               Follow our examples to streamline the integration process
             </p>
             <motion.a
@@ -96,7 +92,7 @@ const Developers = () => {
               <img src={DocsImage} alt="Documentation" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Technical Reference</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
                 Explore the basics behind StableBridge Core by visiting our docs
             </p>
             <motion.a
@@ -118,7 +114,7 @@ const Developers = () => {
               <img src={AboutImage} alt="About" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">About Core</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
               Cross-chain swaps, extra gas, messaging protocols
             </p>
             <motion.a
@@ -135,7 +131,7 @@ const Developers = () => {
         {/* Collaborations Section */}
         <div className="mt-16 text-center relative">
           <h3 className="text-xl font-semibold text-white mb-3">Collaborations</h3>
-          <p className="text-gray-400 mb-6 max-w-md mx-auto text-sm font-semibold">
+          <p className="text-gray-200 mb-6 max-w-md mx-auto text-sm font-semibold">
             Reach out to our development team if you need additional help with the integration
           </p>
           <motion.button

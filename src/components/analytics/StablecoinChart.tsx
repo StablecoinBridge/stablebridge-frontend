@@ -144,8 +144,8 @@ const StablecoinChart: React.FC<StablecoinChartProps> = () => {
                 <stop offset="95%" stopColor="#B3A394" stopOpacity={0.1} />
               </linearGradient>
               <linearGradient id="colorUSDA" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#F87171" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#F87171" stopOpacity={0.1} />
+                <stop offset="5%" stopColor="#6E11B0" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#6E11B0" stopOpacity={0.1} />
               </linearGradient>
             </defs>
             <XAxis
