@@ -25,7 +25,7 @@ const Hero = () => {
           </h1>
 
           <motion.button
-            className="bg-purple flex items-center gap-2  text-black py-3 px-6 rounded-full font-medium hover:bg-allbridge-darkGreen "
+            className="bg-purple-800 flex items-center gap-2 text-white py-3 px-6 rounded-full font-medium hover:bg-allbridge-darkGreen "
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/swap")}

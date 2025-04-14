@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import SDKImage from "@/assets/sdk.svg";
-import IntegrationImage from "@/assets/integration.svg";
-import DocsImage from "@/assets/reference.svg";
-import AboutImage from "@/assets/about.svg";
+import SDKImage from "@/assets/Icon 1 .svg";
+import IntegrationImage from "@/assets/code icon .svg";
+import DocsImage from "@/assets/file setting .svg";
+import AboutImage from "@/assets/navigation icon .svg";
 import CollabImage from "@/assets/collaboration-l.svg";
 import CollabImage2 from "@/assets/collaboration-r.svg";
 import CoreBg from "@/assets/core-bg.png";
@@ -13,11 +13,7 @@ const Developers = () => {
       <div className="w-full relative overflow-hidden">
         {/* Large logo watermark */}
         <div className="absolute  right-0 top-0 w-[70%] h-full opacity-30">
-        <img 
-          src="/logo-watermark.svg" 
-          alt="Logo watermark" 
-          className="w-full h-full object-cover"
-        />
+
       </div>
 
 
