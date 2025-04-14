@@ -9,6 +9,7 @@ import {
   Search,
   Star,
   Clock,
+  ChartLine,
 } from "lucide-react";
 import Logo from "./Logo";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -86,6 +87,9 @@ const Header: React.FC = () => {
             </NavItem>
             <NavItem active={currentPath === "/explorer"} icon={Search} route="/explorer">
                 Explorer
+            </NavItem>
+            <NavItem active={currentPath === "/analytics"} icon={ChartLine} route="/analytics">
+              Analytics
             </NavItem>
             <NavItem active={currentPath === "/ranks"} icon={Star} route="/ranks">
               Ranks
