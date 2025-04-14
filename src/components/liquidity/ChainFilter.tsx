@@ -1,18 +1,20 @@
 import React from "react";
 import { Chain } from "@/types";
 import { getChainIcon } from "@/components/icons/ChainIcons";
+import { useNavigate } from "react-router-dom";
 
 interface ChainFilterProps {
   chains: Chain[];
-  selectedChain: Chain;
-  setSelectedChain: (chain: Chain) => void;
+  selectedChain: String;
+  // setSelectedChain: (chain: Chain) => void;
 }
 
 const ChainFilter: React.FC<ChainFilterProps> = ({
   chains,
   selectedChain,
-  setSelectedChain,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-wrap gap-4 my-4">
       {chains.map((chain) => (
@@ -21,7 +23,9 @@ const ChainFilter: React.FC<ChainFilterProps> = ({
           className={`cursor-pointer ${
             selectedChain === chain ? "scale-110" : ""
           }`}
-          onClick={() => setSelectedChain(chain)}
+          onClick={() => {
+            navigate(`/explorer?chain=${chain}`);
+          }}
         >
           <span className="flex items-center gap-1.5">
             {getChainIcon(chain)}

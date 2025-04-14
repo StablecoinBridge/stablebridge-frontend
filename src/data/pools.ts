@@ -13,6 +13,7 @@ export const pools: Pool[] = [
   {
     id: '1',
     chain: 'Arbitrum',
+    chainAbbreviation: 'ARB',
     token: 'USDC',
     tvl: 1041603.79,
     apr: 5.11,
@@ -24,6 +25,7 @@ export const pools: Pool[] = [
   {
     id: '2',
     chain: 'Arbitrum',
+    chainAbbreviation: 'ARB',
     token: 'USDT',
     tvl: 185596.34,
     apr: 2.71,
@@ -34,7 +36,8 @@ export const pools: Pool[] = [
   },
   {
     id: '3',
-    chain: 'Avalanche',
+    chain: 'ETHERUM',
+    chainAbbreviation: 'ETH',
     token: 'USDC',
     tvl: 70007.56,
     apr: 1.31,
@@ -46,6 +49,7 @@ export const pools: Pool[] = [
   {
     id: '4',
     chain: 'Avalanche',
+    chainAbbreviation: 'AVA',
     token: 'USDT',
     tvl: 78179.98,
     apr: 0.92,
@@ -57,6 +61,7 @@ export const pools: Pool[] = [
   {
     id: '5',
     chain: 'Base',
+    chainAbbreviation: 'BAS',
     token: 'USDC',
     tvl: 748054.28,
     apr: 4.8,
@@ -68,6 +73,7 @@ export const pools: Pool[] = [
   {
     id: '6',
     chain: 'BNB Chain',
+    chainAbbreviation: 'BSC',
     token: 'USDT',
     tvl: 3763508.00,
     apr: 5.53,
@@ -79,6 +85,31 @@ export const pools: Pool[] = [
   {
     id: '7',
     chain: 'Celo',
+    chainAbbreviation: 'CEL',
+    token: 'USDT',
+    tvl: 95622.45,
+    apr: 3.25,
+    imbalance: '+2.11%',
+    imbalanceValue: 2.11,
+    yourLP: 0.00,
+    earned: 0.00,
+  },
+  {
+    id: '8',
+    chain: 'Celo',
+    chainAbbreviation: 'OPT',
+    token: 'USDT',
+    tvl: 95622.45,
+    apr: 3.25,
+    imbalance: '+2.11%',
+    imbalanceValue: 2.11,
+    yourLP: 0.00,
+    earned: 0.00,
+  },
+  {
+    id: '8',
+    chain: 'Celo',
+    chainAbbreviation: 'POL',
     token: 'USDT',
     tvl: 95622.45,
     apr: 3.25,
@@ -90,6 +121,6 @@ export const pools: Pool[] = [
 ];
 
 export const getChains = (): Chain[] => {
-  const chainSet = new Set<Chain>(pools.map(pool => pool.chain));
+  const chainSet = new Set<Chain>(pools.map(pool => pool.chainAbbreviation));
   return ['All', ...Array.from(chainSet)];
 };
