@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import SDKImage from "@/assets/collaboration-r.svg";
-import IntegrationImage from "@/assets/collaboration-l.svg";
-import DocsImage from "@/assets/collaboration-r.svg";
-import AboutImage from "@/assets/collaboration-r.svg";
+import SDKImage from "@/assets/Icon 1 .svg";
+import IntegrationImage from "@/assets/code icon .svg";
+import DocsImage from "@/assets/file setting .svg";
+import AboutImage from "@/assets/navigation icon .svg";
 
 
 
@@ -26,7 +26,7 @@ const Enabling = () => {
               <img src={SDKImage} alt="SDK" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Expertise</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
             Our team consists of experienced developers with extensive knowledge of building cross-chain applications
             </p>
             
@@ -41,7 +41,7 @@ const Enabling = () => {
                 <img src={IntegrationImage} alt="Integration" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Continuous innovation</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
             Allbridge is dedicated to staying at the forefront of the cross-chain market, continuously expanding access to new blockchains
             </p>
           
@@ -56,7 +56,7 @@ const Enabling = () => {
               <img src={DocsImage} alt="Documentation" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Prioritizing user experience</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
             We make the bridging experience more approachable to newcomers and connect unique networks with more established EVM ecosystems
             </p>
           </motion.div>
@@ -70,7 +70,7 @@ const Enabling = () => {
               <img src={AboutImage} alt="About" className="w-20 h-20" />
             </div>
             <h3 className="text-2xl font-semibold text-white mb-3">Flexible integration</h3>
-            <p className="text-gray-400 mb-6 text-sm max-w-[250px] font-semibold">
+            <p className="text-gray-200 mb-6 text-sm max-w-[250px] font-semibold">
             Allbridge Core offers multiple integration options, enabling seamless access to cross-chain stablecoin payments
             </p>
           
