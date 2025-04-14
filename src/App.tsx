@@ -8,6 +8,7 @@ import Swap from './pages/Swap'
 import Ranks from './pages/Ranks'
 import Explorer from './pages/Explorer'
 import Analytics from './pages/Analytics'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function App() {
 

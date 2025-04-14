@@ -148,21 +148,21 @@ export const getChainIcon = (chain: string): React.ReactElement => {
   switch (chain) {
     case 'All':
       return <AllChainIcon />;
-    case 'Arbitrum':
+    case 'ARB':
       return <ArbitrumIcon />;
-    case 'Avalanche':
+    case 'AVA':
       return <AvalancheIcon />;
-    case 'Base':
+    case 'BAS':
       return <BaseIcon />;
-    case 'BNB Chain':
+    case 'BSC':
       return <BNBIcon />;
-    case 'Celo':
+    case 'CEL':
       return <CeloIcon />;
-    case 'Ethereum':
+    case 'ETH':
       return <EthereumIcon />;
-    case 'Optimism':
+    case 'OPT':
       return <OptimismIcon />;
-    case 'Polygon':
+    case 'POL':
       return <PolygonIcon />;
     default:
       return <AllChainIcon />;

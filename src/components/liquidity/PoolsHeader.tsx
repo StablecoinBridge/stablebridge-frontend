@@ -4,10 +4,17 @@ import { Database, Grid2x2Icon, RefreshCw } from "lucide-react";
 import ChainFilter from "./ChainFilter";
 import { usePools } from "@/contexts/PoolsContext";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {useGetStableCoinsTotals} from "@/lib/api/coins";
+import { useSearchParams } from 'react-router-dom'
 
 const PoolsHeader: React.FC<{ title?: string, icon?: React.ReactNode }> = ({ title = "Pools", icon = <Database className="text-violet-600" /> }) => {
-  const { stats, selectedTimeframe, setSelectedTimeframe, chains, selectedChain, setSelectedChain, explorerStats } = usePools();
 
+  const [searchParams] = useSearchParams();
+  const selectedChain = searchParams.get('chain')
+  const limit = searchParams.get('limit')
+  const page=searchParams.get('page')
+  const { stats, selectedTimeframe, setSelectedTimeframe, chains } = usePools();
+  const {data={}}=useGetStableCoinsTotals({chain:selectedChain,page,limit})
   return (
     <div className="flex flex-col w-full mt-2 mb-6 animate-fade-up">
       <div className="flex md:flex-row flex-col items-center justify-between mb-3">
@@ -20,8 +27,8 @@ const PoolsHeader: React.FC<{ title?: string, icon?: React.ReactNode }> = ({ tit
 
         <ChainFilter
           chains={chains}
-          selectedChain={selectedChain}
-          setSelectedChain={setSelectedChain}
+          selectedChain={selectedChain as string}
+          // setSelectedChain={setSelectedChain}
         />
         <div className="flex flex-wrap justify-between items-center">
           <div className="flex items-center gap-2 ml-auto">
@@ -92,7 +99,7 @@ const PoolsHeader: React.FC<{ title?: string, icon?: React.ReactNode }> = ({ tit
                 Volume
               </span>
               <span className="text-2xl font-medium text-violet-600">
-                {formatCurrency(explorerStats.volume)}
+                {formatCurrency(data?.totalVolume??0)}
               </span>
             </div>
             <div className="flex flex-col justify-center border-l border-violet-200 pl-4">
@@ -100,7 +107,7 @@ const PoolsHeader: React.FC<{ title?: string, icon?: React.ReactNode }> = ({ tit
                 Transfers
               </span>
               <span className="text-2xl font-medium text-violet-600">
-                {explorerStats.tranfers}
+                {data?.totalCount??0}
               </span> 
             </div>
           </div>

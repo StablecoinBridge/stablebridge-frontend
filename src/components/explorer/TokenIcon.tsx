@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-
+import { getChainIcon } from "../icons/ChainIcons";
 interface TokenIconProps {
   bg: string;
 }
@@ -10,10 +10,10 @@ const TokenIcon: React.FC<TokenIconProps> = ({ bg }) => {
     <div 
       className={cn(
         "w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-medium",
-        bg
+      
       )}
     >
-      T
+    {getChainIcon(bg)}
     </div>
   );
 };
