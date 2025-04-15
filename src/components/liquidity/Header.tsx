@@ -5,7 +5,6 @@ import {
   Sun,
   Repeat2,
   Database,
-  Wallet,
   Search,
   Star,
   Clock,
@@ -110,9 +109,8 @@ const Header: React.FC = () => {
           >
             <Clock className="h-4 w-4" />
           </button>
-          <div className="connect-button flex items-center gap-2 bg-violet-50 text-violet-500 font-semibold px-4 py-2 rounded-full">
-            <Wallet className="w-3.5 h-3.5" />
-            Connect wallet
+          <div className="connect-button flex items-center gap-2 ">
+            <appkit-button label="Connect wallet" size="md"/>
           </div>
         </div>
       </div>

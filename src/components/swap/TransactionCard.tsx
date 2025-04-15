@@ -23,9 +23,9 @@ const TransactionCard = () => {
             />
           </div>
         </div>
-        <button className="bg-purple-100 hover:bg-gray-200 transition-colors text-gray-700 px-5 py-2 rounded-full text-sm">
-          Connect wallet
-        </button>
+        <div>
+          <appkit-button label="Connect wallet" size="md" />
+        </div>
 
         <div className="flex justify-center my-4">
           <div className="bg-purple-100 w-8 h-8 flex items-center justify-center rounded-full text-gray-500">
@@ -46,10 +46,10 @@ const TransactionCard = () => {
           />
         </div>
         <div className="flex gap-3">
-          <button className="bg-purple-100 hover:bg-gray-200 transition-colors text-gray-700 px-5 py-2 rounded-full text-sm">
-            Connect wallet
-          </button>
-          <button className="bg-purple-100 hover:bg-gray-200 transition-colors text-gray-700 px-5 py-2 rounded-full text-sm">
+          <div >
+            <appkit-button label="Connect wallet" size="md" />
+          </div>
+          <button className="bg-purple-100 hover:bg-gray-200 transition-colors text-gray-700 px-5 py-2 rounded-full text-sm" onClick={() => navigator.clipboard.readText().then(text => console.log(text))}>
             Paste address
           </button>
         </div>
