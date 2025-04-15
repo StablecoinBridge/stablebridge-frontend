@@ -4,11 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import TokenRow from "@/components/swap/TokenRow";
-
+import SwapDialog from "@/components/swap/SwapDialog";
 const TransactionCard = () => {
   const [extraGas, setExtraGas] = useState(true);
+  const [SwapMode, setSwapMode] = useState(false);
 
   return (
+    <>
     <div className="bg-[rgba(255,255,255,0.7)] backdrop-blur-sm rounded-3xl shadow-lg p-8 w-[450px]">
       {/* USDT Section */}
       <div className="mb-8">
@@ -20,6 +22,7 @@ const TransactionCard = () => {
               network="from Avalanche"
               iconColor="#26A17B"
               networkIcon="🔺"
+              onClick={() => setSwapMode(true)}
             />
           </div>
         </div>
@@ -35,21 +38,29 @@ const TransactionCard = () => {
       </div>
 
       {/* USDC Section */}
-      <div className="mb-8">
-        <div className="text-5xl font-light text-gray-400 mb-4">0.0</div>
-        <div className="flex justify-between items-center mb-4">
-          <TokenRow
-            symbol="USDC"
-            network="to Base"
-            iconColor="#2775CA"
-            networkIcon="🔵"
-          />
+      <div className="mb-9">
+        <div className="flex justify-between items-center">
+          <div className="text-5xl font-light text-gray-400 mb-4">0.0</div>
+          <div className="flex justify-between border rounded-full p-1 items-center mb-4">
+            <TokenRow
+              symbol="USDC"
+              network="to Base"
+              iconColor="#2775CA"
+              networkIcon="🔵"
+              onClick={() => setSwapMode(true)}
+            />
+          </div>
         </div>
         <div className="flex gap-3">
-          <div >
+          <div>
             <appkit-button label="Connect wallet" size="md" />
           </div>
-          <button className="bg-purple-100 hover:bg-gray-200 transition-colors text-gray-700 px-5 py-2 rounded-full text-sm" onClick={() => navigator.clipboard.readText().then(text => console.log(text))}>
+          <button
+            className="bg-purple-100 hover:bg-gray-200 transition-colors text-gray-700 px-5 py-2 rounded-full text-sm"
+            onClick={() =>
+              navigator.clipboard.readText().then((text) => console.log(text))
+            }
+          >
             Paste address
           </button>
         </div>
@@ -96,6 +107,8 @@ const TransactionCard = () => {
         Send
       </Button>
     </div>
+    <SwapDialog open={SwapMode} onClose={() => setSwapMode(false)} />
+    </>
   );
 };
 

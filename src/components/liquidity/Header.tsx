@@ -52,6 +52,7 @@ const NavItem: React.FC<NavItemProps> = ({
 
 const Header: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const currentPath = location.pathname;
   const { darkMode, toggleDarkMode } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -108,8 +109,11 @@ const Header: React.FC = () => {
             )}
           </button>
           <button
-            onClick={toggleDarkMode}
-            className="w-9 h-9 flex items-center justify-center rounded-full text-violet-500 bg-violet-50 transition-colors hover:bg-secondary/80"
+            onClick={() => navigate("/history")}
+            className={cn(
+              "w-9 h-9 flex items-center justify-center rounded-full text-violet-500 bg-violet-50 transition-colors hover:bg-secondary/80",
+              currentPath === "/history" ? "text-white bg-violet-500" : ""
+            )}
           >
             <Clock className="h-4 w-4" />
           </button>
