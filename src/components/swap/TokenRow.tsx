@@ -5,11 +5,12 @@ interface TokenRowProps {
   network: string;
   iconColor: string;
   networkIcon: string;
+  onClick: () => void;
 }
 
-const TokenRow = ({ symbol, network, iconColor, networkIcon }: TokenRowProps) => {
+const TokenRow = ({ symbol, network, iconColor, networkIcon, onClick }: TokenRowProps) => {
   return (
-    <div className="flex justify-between items-center w-full">
+    <div className="flex justify-between items-center cursor-pointer w-full" onClick={onClick}>
       <div className="flex items-center gap-3">
         <div className="p-2 bg-gray-100 rounded-full">
           <div 

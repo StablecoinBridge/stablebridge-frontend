@@ -9,6 +9,7 @@ import Ranks from './pages/Ranks'
 import Explorer from './pages/Explorer'
 import Analytics from './pages/Analytics'
 import 'react-loading-skeleton/dist/skeleton.css'
+import History from './pages/History'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Route path="/explorer" element={<Explorer />} />
       <Route path="/ranks" element={<Ranks />} />
       <Route path="/analytics" element={<Analytics />} />
+      <Route path="/history" element={<History />} />
       <Route path="*" element={<NotFound />} /> 
     </Routes>
     </>
