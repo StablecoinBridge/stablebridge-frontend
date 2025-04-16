@@ -65,7 +65,7 @@ const SwapDialog = ({open, onClose}: {open: boolean, onClose: () => void}) => {
             {avalancheTokens.map((token) => (
               <button
                 key={token.symbol}
-                className="w-full flex items-center gap-3 p-3 rounded-full hover:bg-purple-200 cursor-pointer transition-colors"
+                className="w-full flex items-center gap-3 p-3 rounded-full hNover:bg-purple-200 cursor-pointer transition-colors"
               >
                 <span className="text-xl">{token.icon}</span>
                 <div className="flex flex-col items-start">

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import logo from '../assets/logo-purple.png'
+import logo from '../assets/stable.gif'
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const Hero = () => {
 
 const IllustrationComponent = () => {
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full h-full -translate-y-10">
       <img src={logo} alt="Hero" className="w-full h-full object-cover" />
     </div>
   );
