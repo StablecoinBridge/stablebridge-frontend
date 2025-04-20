@@ -46,7 +46,7 @@ const Mission = () => {
           </motion.div>
 
           <motion.div 
-            className="md:w-1/2 flex justify-center md:justify-end relative"
+            className="md:w-1/2 w-full flex md:flex-row flex-col justify-center md:justify-end relative"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
@@ -56,7 +56,7 @@ const Mission = () => {
               <img 
                 src={logo} 
                 alt="Allbridge logo" 
-                className="w-full h-auto object-contain"
+                className="w-full h-[300px] object-contain"
               />
 
               {/* Animated decorative elements */}
