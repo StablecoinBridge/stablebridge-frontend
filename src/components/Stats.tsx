@@ -1,17 +1,8 @@
 import { motion } from "framer-motion";
-import coinIcon from "@/assets/coin.svg";
-import transferIcon from "@/assets/transfer.svg";
+import image1 from "@/assets/coin.svg";
+import image2 from "@/assets/dialogue .svg";
 
 const Stats = () => {
-  const statVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,101 +15,160 @@ const Stats = () => {
   };
 
   return (
-    <div className="w-full bg-[#000011] relative py-20">
-      <div className="container mx-auto px-6 md:max-w-5xl">
-        <motion.div
-          className="grid grid-cols-2 gap-x-32 gap-y-20 relative mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {/* Cross lines */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-full h-full">
-              {/* Vertical line */}
-              <div className="absolute left-1/2 top-0 w-px h-full bg-gray-800/50 transform -translate-x-1/2"></div>
-              {/* Horizontal line */}
-              <div className="absolute top-1/2 left-0 w-full h-px bg-gray-800/50 transform -translate-y-1/2"></div>
-              {/* Center star */}
-              <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <motion.div
-                  className="w-4 h-4"
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 50,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                >
+     <>
+      <motion.div
+        className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 pb-16 relative"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div className="bg-background/5 border border-white/10 rounded-lg p-6 relative">
+          <img
+            src={image1}
+            alt="Laptop"
+            className="absolute top-[-70px] right-[30px] w-[120px]"
+          />
+          <div className="relative z-10">
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="bg-purple-primary/20 p-3 rounded-full">
                   <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-purple-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
                     <path
-                      d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"
-                      fill="#333"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"
                     />
                   </svg>
-                </motion.div>
+                </div>
+                <div>
+                  <h3 className="text-xl text-white">Unique wallets</h3>
+                  <p className="text-5xl font-bold text-purple-primary">
+                    766,531
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="bg-purple-primary/20 p-3 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-purple-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl text-white">Total transfers</h3>
+                  <p className="text-5xl font-bold text-purple-primary">
+                    1,062,853
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Stats */}
-          <motion.div
-            className="flex flex-col items-start"
-            variants={statVariants}
-          >
-            <p className="text-gray-400 text-sm font-light mb-1">
-              Unique wallets
-            </p>
-            <p className="text-[#2FD0A6] text-5xl font-normal">875,603</p>
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col items-end"
-            variants={statVariants}
-          >
-            <p className="text-gray-400 text-sm font-light mb-1">TVL</p>
-            <p className="text-[#9FE634] text-5xl font-normal">$45,744,936</p>
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col items-start"
-            variants={statVariants}
-          >
-            <p className="text-gray-400 text-sm font-light mb-1">
-              Total transfers
-            </p>
-            <p className="text-[#2FD0A6] text-5xl font-normal">1,728,967</p>
-          </motion.div>
-
-          <motion.div
-            className="flex flex-col items-end"
-            variants={statVariants}
-          >
-            <p className="text-gray-400 text-sm font-light mb-1">Blockchains</p>
-            <p className="text-[#4A7CF6] text-5xl font-normal">21</p>
-          </motion.div>
         </motion.div>
-        <motion.div
-          className="absolute left-1/4 bottom-6"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <img src={transferIcon} alt="Transfer icon" className="w-10 h-10" />
-        </motion.div>
-        <motion.div
-          className="absolute right-1/4 top-1/2 -translate-y-1/2"
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <img src={coinIcon} alt="Coin icon" className="w-10 h-10" />
-        </motion.div>
-      </div>
-    </div>
+
+        <div className="bg-background/5 border border-white/10 rounded-lg p-6 relative">
+          <img
+            src={image2}
+            alt="Laptop"
+            className="absolute top-[-70px] right-[20px] w-[150px] z-0"
+          />
+          <div className="relative z-10">
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="bg-purple-primary/20 p-3 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-purple-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7c-2 0-3 1-3 3z M8 7v10 M16 7v10"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl text-white">Liquidity pools</h3>
+                  <p className="text-5xl font-bold text-purple-primary">19</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              <div className="flex items-center gap-3">
+                <div className="bg-purple-primary/20 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-purple-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl text-white">TVL</h3>
+                  <p className="text-2xl font-bold text-purple-primary">
+                    $26,049,000
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="bg-purple-primary/20 p-2 rounded-full">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-purple-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl text-white">Average APR</h3>
+                  <p className="text-2xl font-bold text-purple-primary">
+                    6.05%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </>
   );
 };
 

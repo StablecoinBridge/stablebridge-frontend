@@ -4,10 +4,10 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Mission from "@/components/Mission";
-import Developers from "@/components/Developers";
-import Ecosystems from "@/components/Ecosystem";
 import Enabling from "@/components/Enabling";
-
+import Footer from "@/components/Footer";
+import FeaturesTab from "@/components/FeaturesTab";
+import Faqs from "@/components/Faqs";
 const Home = () => {
   useEffect(() => {
     document.body.style.overflow = "auto";
@@ -26,14 +26,15 @@ const Home = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-[#d18ee8] mt-4 rounded-t-2xl">
+      <div className="bg-black mt-4 rounded-t-2xl">
         <Navbar />
         <Hero />
         <Stats />
+        <FeaturesTab /> 
         <Mission />
-        <Developers />
-        <Ecosystems/>
         <Enabling />
+        <Faqs />
+        <Footer />  
       </div>
     </motion.div>
   );
