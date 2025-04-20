@@ -23,7 +23,7 @@ const Mission = () => {
               StableBridge mission  
             </motion.h2>
             <motion.p 
-              className="text-lg text-gray-text leading-relaxed mb-10 max-w-md"
+              className="text-lg text-white leading-relaxed mb-10 max-w-md"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -72,7 +72,7 @@ const Mission = () => {
                   ease: "easeInOut" 
                 }}
               >
-                <div className="w-8 h-8 bg-mint rounded-full blur-md opacity-60"></div>
+                <div className="w-8 h-8 bg-purple-primary rounded-full blur-md opacity-60"></div>
               </motion.div>
 
               <motion.div 
@@ -88,7 +88,7 @@ const Mission = () => {
                   delay: 1
                 }}
               >
-                <div className="w-10 h-10 bg-mint rounded-full blur-md opacity-50"></div>
+                <div className="w-10 h-10 bg-purple-primary rounded-full blur-md opacity-50"></div>
               </motion.div>
 
               <motion.div 
@@ -104,7 +104,7 @@ const Mission = () => {
                   delay: 0.5
                 }}
               >
-                <div className="w-6 h-6 bg-blue-accent rounded-full blur-md opacity-70"></div>
+                <div className="w-6 h-6 bg-purple-primary rounded-full blur-md opacity-70"></div>
               </motion.div>
             </div>
           </motion.div>
