@@ -36,6 +36,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --color-purple-primary: #9b87f5;
+  --color-purple-secondary: #7E69AB;
+  --color-purple-tertiary: #6E59A5;
+  --color-purple-dark: #1A1F2C;
+  --color-purple-light: #D6BCFA;
+  --color-purple-soft: #E5DEFF;
+  --color-purple-vivid: #8B5CF6
 }
 
 @theme {
@@ -78,15 +85,23 @@
     ethereum: '#627EEA',
     optimism: '#FF0420',
   },
-  --color-dashboard-dark: #171923,
-  --color-dashboard-card: #1A202C,
-  --color-dashboard-accent: #2D3748,
-  --color-dashboard-blue: #4299E1,
-  --color-dashboard-lightblue: #63B3ED,
-  --color-dashboard-text: #A0AEC0,
-  --color-dashboard-highlight: #F687B3,
-  --color-dashboard-red: #FEB2B2,
-  --color-dashboard-gold: #F6AD55
+  --color-dashboard-dark: #171923;
+  --color-dashboard-card: #1A202C;
+  --color-dashboard-accent: #2D3748;
+  --color-dashboard-blue: #4299E1;
+  --color-dashboard-lightblue: #63B3ED;
+  --color-dashboard-text: #A0AEC0;
+  --color-dashboard-highlight: #F687B3;
+  --color-dashboard-red: #FEB2B2;
+  --color-dashboard-gold: #F6AD55;
+  --color-purple-primary: #9b87f5;
+  --color-purple-secondary: #7E69AB;
+  --color-purple-tertiary: #6E59A5;
+  --color-purple-dark: #1A1F2C;
+  --color-purple-light: #D6BCFA;
+  --color-purple-soft: #E5DEFF;
+  --color-purple-vivid: #8B5CF6;
+  
 }
 
 .dark {
@@ -121,6 +136,13 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --color-purple-primary: #9b87f5;
+  --color-purple-secondary: #7E69AB;
+  --color-purple-tertiary: #6E59A5;
+  --color-purple-dark: #1A1F2C;
+  --color-purple-light: #D6BCFA;
+  --color-purple-soft: #E5DEFF;
+  --color-purple-vivid: #8B5CF6
 }
 
 .dark * {
